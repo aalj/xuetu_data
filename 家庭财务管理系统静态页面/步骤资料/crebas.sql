@@ -6,13 +6,13 @@
 
 drop table if exists bill;
 
-drop index Relationship_6_FK on bill_type;
+
 
 drop table if exists bill_type;
 
 drop table if exists familymember;
 
-drop index Relationship_2_FK on income_and_expenses;
+
 
 drop table if exists income_and_expenses;
 
