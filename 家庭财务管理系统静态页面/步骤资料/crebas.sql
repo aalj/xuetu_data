@@ -68,7 +68,7 @@ create table familymember
 create table income_and_expenses
 (
    in_ex_id             int not null auto_increment,
-   bi_id                int not null auto_increment,
+   bi_id                int not null ,
    in_ex_name           varchar(4) not null,
    primary key (in_ex_id)
 );
@@ -103,7 +103,7 @@ create table sub_bill_type
 alter table bill add constraint FK_fm_bi foreign key (fm_id)
       references familymember (fm_id) on delete restrict on update restrict;
 
-alter table bill_type add constraint FK_bi_bit foreign key ()
+alter table bill_type add constraint FK_bi_bit foreign key (sub_bt)
       references bill (bi_id) on delete restrict on update restrict;
 
 alter table income_and_expenses add constraint FK_bi_inex foreign key (bi_id)
