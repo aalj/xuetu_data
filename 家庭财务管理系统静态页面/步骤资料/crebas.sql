@@ -1,8 +1,9 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2016/1/26 20:06:16                           */
+/* Created on:     2016/1/27 15:23:23                           */
 /*==============================================================*/
-
+create database family;
+use family;
 
 drop table if exists bill;
 
@@ -16,7 +17,7 @@ drop table if exists familymember;
 
 drop table if exists income_and_expenses;
 
-drop table if exists pwd;
+
 
 drop table if exists sub_bill_type;
 
@@ -42,13 +43,9 @@ create table bill_type
 (
    by_id                int not null auto_increment,
    by_name              char(10) not null,
-   sub_bt               Integer(2) not null,
    primary key (by_id)
 );
 
-/*==============================================================*/
-/* Index: Relationship_6_FK                                     */
-/*==============================================================*/
 
 
 /*==============================================================*/
@@ -59,6 +56,7 @@ create table familymember
    fm_id                int not null auto_increment,
    fm_name              varchar(20) not null,
    fm_permiss           int not null,
+   pwd                  varchar(20) not null,
    primary key (fm_id)
 );
 
@@ -68,50 +66,33 @@ create table familymember
 create table income_and_expenses
 (
    in_ex_id             int not null auto_increment,
-   bi_id                int not null ,
    in_ex_name           varchar(4) not null,
    primary key (in_ex_id)
 );
 
-/*==============================================================*/
-/* Index: Relationship_2_FK                                     */
-/*==============================================================*/
 
-
-/*==============================================================*/
-/* Table: pwd                                                   */
-/*==============================================================*/
-create table pwd
-(
-   pwd_id               integer(2) not null auto_increment,
-   fm_id                int not null,
-   pwd                  varchar(20) not null,
-   primary key (pwd_id)
-);
 
 /*==============================================================*/
 /* Table: sub_bill_type                                         */
 /*==============================================================*/
 create table sub_bill_type
 (
-   sub_bt               Integer(2) not null auto_increment,
-   by_id                int not null,
+   sub_bt_id            Integer(2) not null auto_increment,
+   by_id                int,
    sub_bt_name          varchar(20) not null,
-   primary key (sub_bt)
+   primary key (sub_bt_id)
 );
+
+
+
+alter table bill add constraint FK_bi_bt foreign key (by_id)
+      references bill_type (by_id) on delete restrict on update restrict;
+
+alter table bill add constraint FK_bi_inex foreign key (in_ex_id)
+      references income_and_expenses (in_ex_id) on delete restrict on update restrict;
 
 alter table bill add constraint FK_fm_bi foreign key (fm_id)
       references familymember (fm_id) on delete restrict on update restrict;
 
-alter table bill_type add constraint FK_bi_bit foreign key (sub_bt)
-      references bill (bi_id) on delete restrict on update restrict;
-
-alter table income_and_expenses add constraint FK_bi_inex foreign key (bi_id)
-      references bill (bi_id) on delete restrict on update restrict;
-
-alter table pwd add constraint FK_fm_pw foreign key (fm_id)
-      references familymember (fm_id) on delete restrict on update restrict;
-
-alter table sub_bill_type add constraint FK_bit_subbit foreign key (by_id)
+alter table sub_bill_type add constraint FK_bill_sub foreign key (by_id)
       references bill_type (by_id) on delete restrict on update restrict;
-
