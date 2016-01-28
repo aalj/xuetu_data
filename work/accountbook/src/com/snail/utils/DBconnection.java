@@ -40,7 +40,7 @@ public class DBconnection {
 		try {
 
 			Properties p = new Properties();
-			p.load(DBconnection.class.getResourceAsStream("db.properties"));
+			p.load(DBconnection.class.getResourceAsStream("db2.properties"));
 			Class.forName(p.getProperty("driver"));
 			return DriverManager.getConnection(p.getProperty("url"), p.getProperty("name"), p.getProperty("pwd"));
 		} catch (ClassNotFoundException e) {
