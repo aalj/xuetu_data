@@ -1,16 +1,3 @@
-/**
- * DBconnection.java
- * com.xuetu.util
- *
- * Function： TODO 
- *
- *   ver     date      		author
- * ──────────────────────────────────
- *   		 2016年1月6日 		Stone
- *
- * Copyright (c) 2016, TNT All Rights Reserved.
-*/
-
 package com.snail.utils;
 
 import java.io.IOException;
@@ -53,7 +40,7 @@ public class DBconnection {
 		try {
 
 			Properties p = new Properties();
-			p.load(DBconnection.class.getResourceAsStream("db2.properties"));
+			p.load(DBconnection.class.getResourceAsStream("db.properties"));
 			Class.forName(p.getProperty("driver"));
 			return DriverManager.getConnection(p.getProperty("url"), p.getProperty("name"), p.getProperty("pwd"));
 		} catch (ClassNotFoundException e) {

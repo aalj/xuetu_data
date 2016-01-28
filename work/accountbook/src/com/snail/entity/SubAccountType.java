@@ -67,8 +67,7 @@ public class SubAccountType {
 	 * 账单类型福父类型id
 	 */
 	private int accountTypeID = 0;
-	
-	
+	 
 
 
 }

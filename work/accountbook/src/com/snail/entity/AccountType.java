@@ -34,11 +34,7 @@ public class AccountType {
 	 * 账单类型福父类型名字
 	 */
 	private String accountTypeNma = null;
-	/**
-	 * 账单收支类型ID
-	 */
-	private int accountIncExp = 0;
-	public AccountType() {
+	 public AccountType() {
 
 		// 
 
@@ -55,18 +51,11 @@ public class AccountType {
 	public void setAccountTypeNma(String accountTypeNma) {
 		this.accountTypeNma = accountTypeNma;
 	}
-	public int getAccountIncExp() {
-		return accountIncExp;
-	}
-	public void setAccountIncExp(int accountIncExp) {
-		this.accountIncExp = accountIncExp;
-	}
-	public AccountType(int accountTypeID, String accountTypeNma, int accountIncExp) {
+	public AccountType(int accountTypeID, String accountTypeNma) {
 		super();
 		this.accountTypeID = accountTypeID;
 		this.accountTypeNma = accountTypeNma;
-		this.accountIncExp = accountIncExp;
 	}
-	 
+
 }
 
