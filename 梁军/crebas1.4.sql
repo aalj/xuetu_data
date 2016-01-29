@@ -1,8 +1,10 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2016/1/29 10:32:30                           */
+/* Created on:     2016/1/29 10:32:53                           */
 /*==============================================================*/
-
+drop database xuetu;
+create database xuetu;
+  use xuetu;
 
 drop table if exists Selfstudyplan;
 
@@ -84,7 +86,7 @@ create table agreement
 /*==============================================================*/
 create index Relationship_21_FK on agreement
 (
-   
+
 );
 
 /*==============================================================*/
@@ -106,7 +108,7 @@ create table answer
 /*==============================================================*/
 create index Relationship_11_FK on answer
 (
-   
+
 );
 
 /*==============================================================*/
@@ -138,7 +140,7 @@ create table collectionquestion
 /*==============================================================*/
 create table countdown
 (
-   codo_id              int not null,
+   codo_id              int not null auto_increment,
    code_time            date,
    codo_text            varchar(100),
    primary key (codo_id)
@@ -163,7 +165,7 @@ create table coupon
 /*==============================================================*/
 create index Relationship_5_FK on coupon
 (
-   
+
 );
 
 /*==============================================================*/
@@ -241,7 +243,7 @@ create table school
 /*==============================================================*/
 create index Relationship_15_FK on school
 (
-   
+
 );
 
 /*==============================================================*/
@@ -308,7 +310,7 @@ create table studytime
 /*==============================================================*/
 create index Relationship_17_FK on studytime
 (
-   
+
 );
 
 /*==============================================================*/
@@ -326,7 +328,7 @@ create table userstate
 /*==============================================================*/
 create index Relationship_3_FK on userstate
 (
-   
+
 );
 
 alter table Selfstudyplan add constraint FK_Relationship_1 foreign key (pattern_id)
@@ -376,4 +378,3 @@ alter table student add constraint FK_Relationship_14 foreign key (sch_id)
 
 alter table studytime add constraint FK_Reference_16 foreign key (stu_id)
       references student (stu_id) on delete restrict on update restrict;
-
