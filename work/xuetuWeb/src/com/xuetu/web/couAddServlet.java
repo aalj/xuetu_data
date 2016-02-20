@@ -14,6 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 public class couAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+    /**
+     * Default constructor. 
+     */
+    public couAddServlet() {
+        // TODO Auto-generated constructor stub
+    }
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -29,9 +36,7 @@ public class couAddServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		/*将页面数据获取到，封装成一个Coupon类，调用Service层的方法添加到数据库
-		 * */
-		request.getParameter("cou_redeem_points");
-			}
+		request.getParameter(")
+	}
 
 }
