@@ -33,6 +33,22 @@ public class Question {
 	private String quesText = null;
 	private String quesIma = null;
 	private Date quesDate = null;
+	private int acpoNum = 0;
+	public Question(int quesID, Student student, String quesText, String quesIma, Date quesDate, int acpoNum) {
+		super();
+		this.quesID = quesID;
+		this.student = student;
+		this.quesText = quesText;
+		this.quesIma = quesIma;
+		this.quesDate = quesDate;
+		this.acpoNum = acpoNum;
+	}
+	public int getAcpoNum() {
+		return acpoNum;
+	}
+	public void setAcpoNum(int acpoNum) {
+		this.acpoNum = acpoNum;
+	}
 	public Question() {
 
 		// 
@@ -166,13 +182,6 @@ public class Question {
 	 * @since  CodingExample　Ver 1.1
 	 */
 	public void setQuesDate(Date quesDate) {
-		this.quesDate = quesDate;
-	}
-	public Question(int quesID, Student student, String quesText, String quesIma, Date quesDate) {
-		this.quesID = quesID;
-		this.student = student;
-		this.quesText = quesText;
-		this.quesIma = quesIma;
 		this.quesDate = quesDate;
 	}
 	

@@ -8,6 +8,13 @@
     <meta name="Author" content="RainMan" />
     <meta name="CopyRight" content="学途科技" />
     <link rel="stylesheet" type="text/css" href="./Style/skin.css" />
+    <script type="text/javascript">
+    <script type="text/javascript">
+	function changeImg(obj){
+		obj.src = "/Day09/servlet/ValiImage?time="+new Date().getTime();
+	}
+	
+	</script>
 </head>
     <body>
         <table width="100%">
@@ -53,7 +60,7 @@
                                         <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:16px;">RainMan 网站管理后台</h4></td></tr>
                                         <tr><td>管理员：</td><td><input type="text" name="" value="" /></td></tr>
                                         <tr><td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="" value="" /></td></tr>
-                                        <tr><td>验证码：</td><td><input type="text" name="" value="" style="width:80px;"/></td></tr>
+                                        <tr><td>验证码：</td><td><input type="text" name="" value="" style="width:80px;"/><img src="/Day09/servlet/ValiImage" onclick="changeImg(this)" style="cursor: pointer;"/></td></tr>
                                         <tr class="bt" align="center"><td>&nbsp;<input type="submit" value="登陆" /></td><td>&nbsp;<input type="reset" value="重填" /></td></tr>
                                     </table>
                                 </form>
