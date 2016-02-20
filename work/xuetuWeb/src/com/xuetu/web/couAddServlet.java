@@ -36,7 +36,7 @@ public class couAddServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
-		request.getParameter(")
+		request.getParameter("");
 	}
 
 }
