@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
@@ -9,9 +10,8 @@
     <meta name="CopyRight" content="学途科技" />
     <link rel="stylesheet" type="text/css" href="./Style/skin.css" />
     <script type="text/javascript">
-    <script type="text/javascript">
 	function changeImg(obj){
-		obj.src = "/Day09/servlet/ValiImage?time="+new Date().getTime();
+		obj.src = "/xuetuWeb/ValiImage?time="+new Date().getTime();
 	}
 	
 	</script>
@@ -55,12 +55,12 @@
                         <tr>
                             <td width="30%" rowspan="5">&nbsp;</td>
                             <td valign="top" id="form">
-                                <form action="" method="">
+                                <form action="/xuetuWeb/LoginServlet" method="get" >
                                     <table valign="top" width="50%">
                                         <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:16px;">RainMan 网站管理后台</h4></td></tr>
-                                        <tr><td>管理员：</td><td><input type="text" name="" value="" /></td></tr>
-                                        <tr><td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="" value="" /></td></tr>
-                                        <tr><td>验证码：</td><td><input type="text" name="" value="" style="width:80px;"/><img src="/Day09/servlet/ValiImage" onclick="changeImg(this)" style="cursor: pointer;"/></td></tr>
+                                        <tr><td>管理员：</td><td><input type="text" name="username" value="" /></td></tr>
+                                        <tr><td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="userpass" value="" /></td></tr>
+                                        <tr><td>验证码：</td><td><input type="text" name="valiimage" value="" style="width:80px;"/><img src="/xuetuWeb/ValiImage" onclick="changeImg(this)" style="cursor: pointer;"/></td></tr>
                                         <tr class="bt" align="center"><td>&nbsp;<input type="submit" value="登陆" /></td><td>&nbsp;<input type="reset" value="重填" /></td></tr>
                                     </table>
                                 </form>
@@ -72,7 +72,7 @@
                 </td>
             </tr>
             <!-- 底部部分 -->
-            <tr id="login_bot"><td colspan="2"><p>Copyright © 2011-2012 RainMan 网络工作室</p></td></tr>
+            <tr id="login_bot"><td colspan="2"><p>Copyright © 2014-2016 XueTu 网络工作室</p></td></tr>
         </table>
     </body>
 </html>
