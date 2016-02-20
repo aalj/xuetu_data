@@ -15,7 +15,6 @@ package com.xuetu.entity;
 /**
  * ClassName:Agreement<br/>
  * Function: 点赞表的实体类<br/>
- * Reason:	 TODO ADD REASON<br/>
  *
  * @author   Stone
  * @version  

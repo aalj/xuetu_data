@@ -15,7 +15,6 @@ package com.xuetu.entity;
 /**
  * ClassName:CollectionQuestion<br/>
  * Function: 收藏问题表的实体<br/>
- * Reason:	 TODO ADD REASON<br/>
  *
  * @author   Stone
  * @version  

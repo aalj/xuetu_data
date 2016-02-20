@@ -18,7 +18,6 @@ import java.util.Date;
 /**
  * ClassName:SelfStudyPlan<br/>
  * Function: 自学计划表的实体类<br/>
- * Reason:	 TODO ADD REASON<br/>
  *
  * @author   Stone
  * @version  

@@ -18,7 +18,6 @@ import java.util.Date;
 /**
  * ClassName:Coupon<br/>
  * Function: 优惠券表的实体类<br/>
- * Reason:	 TODO ADD REASON<br/>
  *
  * @author   Stone
  * @version  

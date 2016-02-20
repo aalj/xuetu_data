@@ -28,7 +28,7 @@ package com.xuetu.entity;
 public class StoreName {
 	private int  stoID = 0;
 	private String stoUserName = null;
-	//TODO 修改数据表的存储数据类型
+	
 	private String stoTel = null;
 	private String stoAddress = null;
 	private String stiName = null;

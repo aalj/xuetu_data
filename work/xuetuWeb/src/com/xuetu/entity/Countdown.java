@@ -18,7 +18,6 @@ import java.util.Date;
 /**
  * ClassName:Countdown<br/>
  * Function: 倒计时表实体类<br/>
- * Reason: TODO ADD REASON<br/>
  *
  * @author Stone
  * @version
