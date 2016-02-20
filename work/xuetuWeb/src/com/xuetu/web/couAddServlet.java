@@ -32,6 +32,6 @@ public class couAddServlet extends HttpServlet {
 		/*将页面数据获取到，封装成一个Coupon类，调用Service层的方法添加到数据库
 		 * */
 		request.getParameter("cou_redeem_points");
-		request	}
+			}
 
 }

@@ -26,13 +26,13 @@ import java.util.Date;
  * @see 	 
 
  */
-public class StudentTime {
+public class StudyTime {
 	private int sttID=0;
 	private Date date = null;
-	//TODO 这里需要更改数据库的存储数据类型
+	
 	private Long time = 0l;
 	private Student student = null;
-	public StudentTime() {
+	public StudyTime() {
 
 		// 
 
@@ -142,7 +142,7 @@ public class StudentTime {
 		this.student = student;
 	}
 
-	public StudentTime(int sttID, Date date, Long time, Student student) {
+	public StudyTime(int sttID, Date date, Long time, Student student) {
 		this.sttID = sttID;
 		this.date = date;
 		this.time = time;

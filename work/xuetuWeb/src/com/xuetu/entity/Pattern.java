@@ -15,7 +15,6 @@ package com.xuetu.entity;
 /**
  * ClassName:Pattern<br/>
  * Function: 计划模式实体表<br/>
- * Reason:	 TODO ADD REASON<br/>
  *
  * @author   Stone
  * @version  

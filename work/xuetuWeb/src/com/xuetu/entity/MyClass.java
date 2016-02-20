@@ -24,13 +24,13 @@ package com.xuetu.entity;
  * @see
  * 
  */
-public class Class {
+public class MyClass {
 	private int clsId = 0;
 	private String clasName = null;
 	private int clsWeek = 0;
 	private String clsFew = null;
 
-	public Class() {
+	public MyClass() {
 
 		//
 
@@ -78,13 +78,37 @@ public class Class {
 		this.clsRoom = cls_Room;
 	}
 
-	public Class(int clsId, String clasName, int cls_Week, String cls_Few, String cls_Room) {
+	public MyClass(int clsId, String clasName, int cls_Week, String cls_Few, String cls_Room) {
 		super();
 		this.clsId = clsId;
 		this.clasName = clasName;
 		this.clsWeek = cls_Week;
 		this.clsFew = cls_Few;
 		this.clsRoom = cls_Room;
+	}
+
+	public int getClsWeek() {
+		return clsWeek;
+	}
+
+	public void setClsWeek(int clsWeek) {
+		this.clsWeek = clsWeek;
+	}
+
+	public String getClsFew() {
+		return clsFew;
+	}
+
+	public void setClsFew(String clsFew) {
+		this.clsFew = clsFew;
+	}
+
+	public String getClsRoom() {
+		return clsRoom;
+	}
+
+	public void setClsRoom(String clsRoom) {
+		this.clsRoom = clsRoom;
 	}
 
 }

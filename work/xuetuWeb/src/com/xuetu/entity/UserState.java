@@ -14,7 +14,7 @@
 package com.xuetu.entity;
 /**
  * ClassName:UserState<br/>
- * Function: 优惠券使用状态的实体表<br/>
+ * Function: 优惠券使用状态的实体表<br/>  g
  * Reason:	 TODO ADD REASON<br/>
  *
  * @author   Stone

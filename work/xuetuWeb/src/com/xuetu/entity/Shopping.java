@@ -28,6 +28,23 @@ package com.xuetu.entity;
  */
 public class Shopping {
 	private int shopID = 0;
-	//TODO 缺优惠券对象
+	private Coupon coupon = null;
+	public int getShopID() {
+		return shopID;
+	}
+	public void setShopID(int shopID) {
+		this.shopID = shopID;
+	}
+	public Coupon getCoupon() {
+		return coupon;
+	}
+	public void setCoupon(Coupon coupon) {
+		this.coupon = coupon;
+	}
+	public Shopping(int shopID, Coupon coupon) {
+		super();
+		this.shopID = shopID;
+		this.coupon = coupon;
+	}
 
 }
