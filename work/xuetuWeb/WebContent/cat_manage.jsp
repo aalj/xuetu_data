@@ -137,6 +137,16 @@
                                                         <td>编辑 删除 </td>
                                                     </tr>
                                                 </table>
+                                                <table width='100%' class="tex004">
+			<tr>
+				<td align='left'><a href='#' onClick='pageQuery(1)'><span>首页</span></a>
+
+
+					<a href='#' onClick="pageQuery(2)"><span>下一页</span></a> <a
+					href='#' onClick="pageQuery(4)">尾页</a></td>
+				<td align='left'>共40项&nbsp;&nbsp;4页</td>
+			</tr>
+		</table>
                                             </form>
                                         </td>
                                     </tr>
