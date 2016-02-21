@@ -17,9 +17,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import org.junit.Test;
 
+import com.xuetu.entity.Coupon;
 import com.xuetu.utils.DBconnection;
 
 /**
@@ -40,14 +42,16 @@ public class MyTest {
 	@Test
 	public void select() throws SQLException{
 		Connection connection = DBconnection.getConnection();
-		String sql = "desc student;";
 		Statement statement = connection.createStatement();
-		ResultSet query = statement.executeQuery(sql);
-		while (query.next()) {
-			String name = query.getString(1);
-			System.out.println(name);
-			
-		}
+		String sql = "update   coupon  set  "
+				+ "cou_name ='看看kan', "
+				+ "cou_info='十四行', "
+				+ "cou_num = 5, "
+				
+				+ "cou_redeem_points = 5, "
+				+ "cou_price = 3  "
+				+ " where cou_id = 2;";
+		statement.executeUpdate(sql);
 	}
 	
 	

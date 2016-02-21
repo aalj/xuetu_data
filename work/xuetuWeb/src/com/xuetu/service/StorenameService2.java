@@ -1,37 +1,28 @@
-/**
- * LoginService.java
- * com.xuetu.service
- *
- * Function： TODO 
- *
- *   ver     date      		author
- * ──────────────────────────────────
- *   		 2016年2月21日 		Stone
- *
- * Copyright (c) 2016, TNT All Rights Reserved.
-*/
 
 package com.xuetu.service;
 
-import com.xuetu.dao.LoginDao;
-import com.xuetu.entity.StoreName;
 
+import java.util.List;
+
+import com.xuetu.dao.StoreNameDao2;
+import com.xuetu.entity.Coupon;
+import com.xuetu.entity.StoreName;
 /**
- * ClassName:LoginService<br/>
- * Function: 登录页面的服务层<br/>
- * Reason: TODO ADD REASON<br/>
+ * 
+ * ClassName:StorenameService2<br/>
+ * 
+ * Function: TODO ADD FUNCTION<br/>
+ * 
+ * Reason:	 TODO ADD REASON<br/>
  *
- * @author Stone
- * @version
- * @since Ver 1.1
- * @Date 2016年2月21日 上午12:00:31
+ * @author   Stone
+ * @version  
+ * @since    Ver 1.1
+ * @Date	 2016	2016年2月21日		下午3:32:47
  *
  * @see
- * 
  */
-public class LoginService {
-	
-
+public class StorenameService2{
 	/**
 	 * 
 	 * verificationNamePwd:(通过用户名查询数据库得到对应 的数据对象)<br/>
@@ -46,8 +37,8 @@ public class LoginService {
 	 *             CodingExample Ver 1.1
 	 */
 	private StoreName verificationNamePwd(String name) {
-		LoginDao dao = new LoginDao();
-		return dao.getStoreName(name);
+		StoreNameDao2 dao = new StoreNameDao2();
+		return dao.getStoreNameByName(name);
 
 	}
 
@@ -65,14 +56,19 @@ public class LoginService {
 	 * @since  CodingExample　Ver 1.1
 	 */
 	public StoreName getStoreName(String name, String pwd) {
-		LoginDao dao = new LoginDao();
+		StoreNameDao2 dao = new StoreNameDao2();
 		StoreName storeName = verificationNamePwd(name);
 		if (pwd.equals(storeName.getStoPwd())) {
-			return dao.getStoreName(name);
+			return dao.getStoreNameByName(name);
 		}
 
 		return null;
 
 	}
-
+	
+	
+	
+	
+	
+	
 }

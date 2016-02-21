@@ -224,6 +224,7 @@ public class Coupon {
 		this.coouRedeemPoints = coouRedeemPoints;
 	}
 	private 	int coouRedeemPoints = 0;
+	
 
 }
 
