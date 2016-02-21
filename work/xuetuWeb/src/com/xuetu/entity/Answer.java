@@ -29,12 +29,12 @@ import java.util.Date;
  * 
  */
 public class Answer {
-	int ansID = 0;
-	Question question = null;
-	Student student = null;
-	String ansText = null;
-	String ansImg = null;
-	Date ansTime = null;
+	private int ansID = 0;
+	private Question question = null;
+	private Student student = null;
+	private String ansText = null;
+	private String ansImg = null;
+	private Date ansTime = null;
 	public int getAnsID() {
 		return ansID;
 	}

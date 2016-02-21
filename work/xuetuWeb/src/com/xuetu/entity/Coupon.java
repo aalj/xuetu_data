@@ -28,17 +28,43 @@ import java.util.Date;
 
  */
 public class Coupon {
-	int couID = 0;
-	StoreName storeName = null;
-	String couInfo = null;
-	int conNum = 0;
+	private int couID = 0;
+	private StoreName storeName = null;
+	private String couInfo = null;
+	private int conNum = 0;
 	//表示优惠券到期时间
-	Date conValidity = null;
+	private Date conValidity = null;
+	private String couName = null;
+	public String getCouName() {
+		return couName;
+	}
+	public void setCouName(String couName) {
+		this.couName = couName;
+	}
+	public int getCouPrice() {
+		return couPrice;
+	}
+	public void setCouPrice(int couPrice) {
+		this.couPrice = couPrice;
+	}
+	private int couPrice = 0;
 	public Coupon() {
 
 		// 
 
-	}
+	}public Coupon(int couID, StoreName storeName, String couInfo, int conNum, Date conValidity, String couName,
+		int couPrice, int coouRedeemPoints) {
+	super();
+	this.couID = couID;
+	this.storeName = storeName;
+	this.couInfo = couInfo;
+	this.conNum = conNum;
+	this.conValidity = conValidity;
+	this.couName = couName;
+	this.couPrice = couPrice;
+	this.coouRedeemPoints = coouRedeemPoints;
+}
+
 	/**
 	 * 
 	 * getCouID:(得到优惠券的ID)<br/>
@@ -197,15 +223,7 @@ public class Coupon {
 	public void setCoouRedeemPoints(int coouRedeemPoints) {
 		this.coouRedeemPoints = coouRedeemPoints;
 	}
-	public Coupon(StoreName storeName, String couInfo, int conNum, Date conValidity, int coouRedeemPoints) {
-		super();
-		this.storeName = storeName;
-		this.couInfo = couInfo;
-		this.conNum = conNum;
-		this.conValidity = conValidity;
-		this.coouRedeemPoints = coouRedeemPoints;
-	}
-	int coouRedeemPoints = 0;
+	private 	int coouRedeemPoints = 0;
 
 }
 

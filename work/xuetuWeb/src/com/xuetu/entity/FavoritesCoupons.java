@@ -25,9 +25,9 @@ package com.xuetu.entity;
 
  */
 public class FavoritesCoupons {
-	int facoID = 0;
-	Student student = null;
-	Coupon coupon = null;
+	private 	int facoID = 0;
+	private Student student = null;
+	private 	Coupon coupon = null;
 	public FavoritesCoupons() {
 
 		// 

@@ -28,9 +28,9 @@ import java.util.Date;
  * 
  */
 public class Countdown {
-	int codoID = 0;
-	Date codoTime = null;
-	String codoText = null;
+	private int codoID = 0;
+	private Date codoTime = null;
+	private String codoText = null;
 
 	public Countdown() {
 
