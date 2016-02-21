@@ -197,9 +197,8 @@ public class Coupon {
 	public void setCoouRedeemPoints(int coouRedeemPoints) {
 		this.coouRedeemPoints = coouRedeemPoints;
 	}
-	public Coupon(int couID, StoreName storeName, String couInfo, int conNum, Date conValidity, int coouRedeemPoints) {
+	public Coupon(StoreName storeName, String couInfo, int conNum, Date conValidity, int coouRedeemPoints) {
 		super();
-		this.couID = couID;
 		this.storeName = storeName;
 		this.couInfo = couInfo;
 		this.conNum = conNum;
