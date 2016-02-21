@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
@@ -56,6 +57,7 @@
                                         <td colspan="2">
                                             <form action="" method="">
                                                 <table width="100%"  class="cont tr_color">
+                                                
                                                     <tr>
                                                         <th>ID</th>
                                                         <th>优惠券名称</th>
@@ -64,87 +66,89 @@
                                                         <th>到期时间</th>
                                                         <th>描述</th>
                                                     </tr>
+                                                    
+                                                   <c:forEach var='type' items='${limitAcconut}'>
                                                     <tr align="center" class="d">
                                                         <td>1</td>
-                                                        <td>我爱我家</td>
+                                                        <td><a href="#">我爱我家</a></td>
                                                         <td>5</td>
                                                         <td>11</td>
                                                         <td>2222-12-22</td>
-                                                        <td>编辑 删除 </td>
+                                                        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
                                                     </tr>
+												</c:forEach>
                                                     <tr align="center" class="d">
-                                                        <td>2</td>
-                                                        <td>我爱我家</td>
+                                                        <td>1</td>
+                                                        <td><a href="#">我爱我家</a></td>
                                                         <td>5</td>
                                                         <td>11</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除 </td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td>3</td>
-                                                        <td>我爱我家</td>
-                                                        <td>5</td>
-                                                        <td>23</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除 </td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td>4</td>
-                                                        <td>我爱我家</td>
-                                                        <td>5</td>
-                                                        <td>23</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除</td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td>5</td>
-                                                        <td>我爱我家</td>
-                                                        <td>5</td>
-                                                        <td>32</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除 </td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td>6</td>
-                                                        <td>我爱我家</td>
-                                                        <td>5</td>
-                                                        <td>44</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除 </td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td>7</td>
-                                                        <td>我爱我家</td>
-                                                        <td>5</td>
-                                                        <td>55</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除 </td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td>8</td>
-                                                        <td>我爱我家</td>
-                                                        <td>5</td>
-                                                        <td>11</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除 </td>
-                                                    </tr>
-                                                    <tr align="center" class="d">
-                                                        <td>9</td>
-                                                        <td>我爱我家</td>
-                                                        <td>5</td>
-                                                        <td>21</td>
-                                                        <td>顶部底部</td>
-                                                        <td>编辑 删除 </td>
-                                                    </tr>
+                                                        <td>2222-12-22</td>
+                                                        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+                                                    </tr><!--                                                     <tr align="center" class="d"> -->
+<!--                                                         <td>3</td> -->
+<!--                                                         <td>我爱我家</td> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>23</td> -->
+<!--                                                         <td>顶部底部</td> -->
+<!--                                                         <td>编辑 删除 </td> -->
+<!--                                                     </tr> -->
+<!--                                                     <tr align="center" class="d"> -->
+<!--                                                         <td>4</td> -->
+<!--                                                         <td>我爱我家</td> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>23</td> -->
+<!--                                                         <td>顶部底部</td> -->
+<!--                                                         <td>编辑 删除</td> -->
+<!--                                                     </tr> -->
+<!--                                                     <tr align="center" class="d"> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>我爱我家</td> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>32</td> -->
+<!--                                                         <td>顶部底部</td> -->
+<!--                                                         <td>编辑 删除 </td> -->
+<!--                                                     </tr> -->
+<!--                                                     <tr align="center" class="d"> -->
+<!--                                                         <td>6</td> -->
+<!--                                                         <td>我爱我家</td> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>44</td> -->
+<!--                                                         <td>顶部底部</td> -->
+<!--                                                         <td>编辑 删除 </td> -->
+<!--                                                     </tr> -->
+<!--                                                     <tr align="center" class="d"> -->
+<!--                                                         <td>7</td> -->
+<!--                                                         <td>我爱我家</td> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>55</td> -->
+<!--                                                         <td>顶部底部</td> -->
+<!--                                                         <td>编辑 删除 </td> -->
+<!--                                                     </tr> -->
+<!--                                                     <tr align="center" class="d"> -->
+<!--                                                         <td>8</td> -->
+<!--                                                         <td>我爱我家</td> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>11</td> -->
+<!--                                                         <td>顶部底部</td> -->
+<!--                                                         <td>编辑 删除 </td> -->
+<!--                                                     </tr> -->
+<!--                                                     <tr align="center" class="d"> -->
+<!--                                                         <td>9</td> -->
+<!--                                                         <td>我爱我家</td> -->
+<!--                                                         <td>5</td> -->
+<!--                                                         <td>21</td> -->
+<!--                                                         <td>顶部底部</td> -->
+<!--                                                         <td>编辑 删除 </td> -->
+<!--                                                     </tr> -->
                                                 </table>
                                                 <table width='100%' class="tex004">
 			<tr>
-				<td align='left'><a href='#' onClick='pageQuery(1)'><span>首页</span></a>
+				<td align="center"><a href='#' onClick='pageQuery(1)'><span>首页</span></a>
 
 
 					<a href='#' onClick="pageQuery(2)"><span>下一页</span></a> <a
 					href='#' onClick="pageQuery(4)">尾页</a></td>
-				<td align='left'>共40项&nbsp;&nbsp;4页</td>
+				<td align="center">共40项&nbsp;&nbsp;4页</td>
 			</tr>
 		</table>
                                             </form>
