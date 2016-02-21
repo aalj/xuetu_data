@@ -25,9 +25,9 @@ package com.xuetu.entity;
 
  */
 public class CollectionQuestion {
-	int coqoID = 0;
-	Student student = null;
-	Question question = null;
+	private int coqoID = 0;
+	private Student student = null;
+	private Question question = null;
 	public int getCoqoID() {
 		return coqoID;
 	}

@@ -26,9 +26,9 @@ package com.xuetu.entity;
 
  */
 public class CourseList {
-	int coulID = 0;
-	Student student = null;
-	MyClass myclass = null;
+	private int coulID = 0;
+	private Student student = null;
+	private MyClass myclass = null;
 	public CourseList() {
 
 		// 

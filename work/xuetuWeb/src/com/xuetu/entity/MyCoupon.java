@@ -28,11 +28,11 @@ import java.util.Date;
 
  */
 public class MyCoupon {
-	int mycouID = 0;
-	UserState userState = null;
-	Coupon coupon = null;
-	Student student = null;
-	Date mycouExchangeTime = null;
+	private int mycouID = 0;
+	private UserState userState = null;
+	private Coupon coupon = null;
+	private Student student = null;
+	private Date mycouExchangeTime = null;
 	public MyCoupon() {
 
 		// 

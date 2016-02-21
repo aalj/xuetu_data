@@ -25,9 +25,9 @@ package com.xuetu.entity;
 
  */
 public class Agreement {
-	int argID=0;
-	Answer answer = null;
-	Student studnet = null;
+	private int argID=0;
+	private 	Answer answer = null;
+	private 	Student studnet = null;
 
 }
 
