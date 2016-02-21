@@ -17,13 +17,13 @@ import com.xuetu.service.CouService;
  * Servlet implementation class couAddServlet
  */
 @WebServlet("/couAddServlet")
-public class CouAddServlet extends HttpServlet {
+public class couAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	CouService couService = new CouService();
     /**
      * Default constructor. 
      */
-    public CouAddServlet() {
+    public couAddServlet() {
         // TODO Auto-generated constructor stub
     }
 
