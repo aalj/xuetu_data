@@ -18,7 +18,6 @@ public class CouponListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("ceshi gaiwenjain shi fouzou ");
 		HttpSession session = request.getSession();
 		int attribute = (int)session.getAttribute("storeNameId");
 		CouService2 loginService = new CouService2();

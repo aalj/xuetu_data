@@ -77,9 +77,9 @@
                                                         <td><c:out value="${type.couPrice }"></c:out></td>
                                                         <td><c:out value="${type.conNum }"></c:out></td>
                                                         <td><c:out value="${type.conValidity }"></c:out></td>
-                                                        <td><a href="/xuetuWeb/ShowCouponServlet?strID=${type.couID}&flags=1">查看
+                                                        <td><a href="/xuetuWeb/ShowCouponServlet?strID=${type.couID}">查看
                                                         </a>&nbsp;&nbsp;<a href="/xuetuWeb/EditCouponManagerServlet?strID=${type.couID}&flags=1">编辑
-                                                        </a>&nbsp;&nbsp;<a href="/xuetuWeb/EditCouponManagerServlet?strID="${type.couID }>删除</a></td>
+                                                        </a>&nbsp;&nbsp;<a href="/xuetuWeb/DeleteCouponServlet?strID=${type.couID}">删除</a></td>
                                                     </tr>
 												</c:forEach>
                                                     <tr align="center" class="d">

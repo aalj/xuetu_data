@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.xuetu.dao.CouponDao2;
 import com.xuetu.entity.Coupon;
 import com.xuetu.utils.DBconnection;
 
@@ -41,17 +42,8 @@ public class MyTest {
 	
 	@Test
 	public void select() throws SQLException{
-		Connection connection = DBconnection.getConnection();
-		Statement statement = connection.createStatement();
-		String sql = "update   coupon  set  "
-				+ "cou_name ='看看kan', "
-				+ "cou_info='十四行', "
-				+ "cou_num = 5, "
-				
-				+ "cou_redeem_points = 5, "
-				+ "cou_price = 3  "
-				+ " where cou_id = 2;";
-		statement.executeUpdate(sql);
+		CouponDao2 couponDao2 = new CouponDao2();
+		couponDao2.delCoupon(3);
 	}
 	
 	

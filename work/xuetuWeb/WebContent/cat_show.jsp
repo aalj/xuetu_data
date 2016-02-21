@@ -2,42 +2,37 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="./Style/skin.css" />
-</head>
-<script src="jquery-1.11.1.js"></script>
-<script>
-/* function Submit(){
-	var insertForm = document.getElementsByName("insertForm")[0];
-	insertForm.action ="/studentweb/insert";
-	insertForm.submit();
-} */
-function Confirm(){
-	var insertForm = document.getElementsByName("insertForm")[0];
-	insertForm.action ="/studentweb/insert";
-	insertForm.submit();
-}
-$(document).ready(function(e) {
-	$(":button[name=submit]").click(function(e) {
-		var points = $(":input[name=cou_redeem_points]").val();
-		var num = $(":input[name=cou_num]").val();
-		var validity = $(":input[name=cou_Validity]").val();
-		var info = $(":input[name=cou_info]").val();
-        if(points==""||num==""||validity==""||info=="")
-		{
-        	alert("请填写必填项！");
+    <script type="text/javascript" src="jquery-1.11.1.js" ></script>
+	<script >
+
+		/* function Submit(){
+			var insertForm = document.getElementsByName("insertForm")[0];
+			insertForm.action ="/studentweb/insert";
+			insertForm.submit();
+		} */
+		function Confirm(){
+			var insertForm = document.getElementsByName("insertForm")[0];
+			insertForm.action ="/studentweb/insert";
+			insertForm.submit();
 		}
-		else
-		{
-			Confirm();
-			alert("增加成功");
+		function _myback(){
+			alter("ok");
+			var submit= document.getElementById("submit");
+			submit.action="/CouponListServlet";
+			submit.submit();
 		}
-})
-    });
-    </script>
+
+	</script>
+
+
+
+    </head>
     <body>
+    <input type="button" id="submit" value ="fanhui" onclick="_myback()"/>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
             <tr>
@@ -85,7 +80,7 @@ $(document).ready(function(e) {
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="/xuetuWeb/ChangeCouponManagerServlet" method="post">
+                                            <form action="/xuetuWeb/CouponListServlet" method="post">
                                                 <table width="100%" class="cont">
                                                 <tr>
                                                 
@@ -93,35 +88,35 @@ $(document).ready(function(e) {
                                                         <input hidden="hidden" name="couponID" value="${editCoupon.couID }"/>
                                                         <input hidden="hidden" name="storeId" value="${editCoupon.storeName.stoID }"/></td>
                                                         <td>优惠券名称：</td>
-                                                        <td><p class="text" type="text" name="cou_name" value="${editCoupon.couName }" /></td>
+                                                        <td>${editCoupon.couName }</td>
                                                         <td></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>优惠券折扣：</td>
-                                                        <td><p class="text" type="text" name="cou_price" value="${editCoupon.couPrice }" /></td>
+                                                        <td>${editCoupon.couPrice }</td>
                                                         <td></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>兑换积分价格：</td>
-                                                        <td><p class="text" type="text" name="cou_redeem_points" value="${editCoupon.coouRedeemPoints }" /></td>
+                                                        <td>${editCoupon.coouRedeemPoints }</td>
                                                         <td></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>优惠券数量：</td>
-                                                        <td width="20%"><p class="text" type="text" name="cou_num" value="${editCoupon.conNum }" /></td>
+                                                        <td width="20%">${editCoupon.conNum }</td>
                                                         <td>举例:55</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>优惠券到期时间：</td>
-                                                        <td width="20%"><p class="text" type="text" name="cou_Validity" value="${editCoupon.conValidity }" /></td>
+                                                        <td width="20%">${editCoupon.conValidity }</td>
                                                         <td>格式:2000-2-15</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
@@ -134,7 +129,12 @@ $(document).ready(function(e) {
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="submit" value="提交" name="submit" /></td>
+                                                        <td colspan="3"><input class="btn" id="submit" type="submit" value="返回" name="submit" onclick="_myback()"/>
+                                                        <form action="">
+                                                        <input type="submit" value="返回"/>
+                                                        </form>
+                                                        
+                                                        </td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>

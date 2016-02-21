@@ -66,6 +66,18 @@ public class CouService2{
 		
 	}
 	
+	public boolean delCoupon(int stoid,int couID){
+		Coupon coupon = getCoupon(couID);
+System.out.println("stoid==coupon.getStoreName().getStoID()\t"+(stoid==coupon.getStoreName().getStoID()));
+		if(stoid==coupon.getStoreName().getStoID()){
+			CouponDao2 couponDao2 = new CouponDao2();
+			return couponDao2.delCoupon(couID);
+		}
+		
+		return false;
+		
+	}
+	
 	
 }
 

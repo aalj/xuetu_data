@@ -134,7 +134,10 @@ $(document).ready(function(e) {
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="submit" value="提交" name="submit" /></td>
+                                                        <td colspan="3"><input class="btn" type="submit" value="提交" name="submit" />
+                                                         <form action="/xuetuWeb/CouponListServlet">
+                                                        <input type="submit" value="返回"/>
+                                                        </form></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>
