@@ -74,7 +74,7 @@
                                                         <td>5</td>
                                                         <td>11</td>
                                                         <td>2222-12-22</td>
-                                                        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+                                                        <td><a href="#">编辑</a>&nbsp;&nbsp;<a href="#">编辑</a>&nbsp;&nbsp;<a href="#">删除</a> </td>
                                                     </tr>
 												</c:forEach>
                                                     <tr align="center" class="d">
