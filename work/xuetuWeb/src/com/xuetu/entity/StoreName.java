@@ -33,13 +33,8 @@ public class StoreName {
 	private String stoAddress = null;
 	private String stoName = null;
 	private String stoIntroduction = null;
-	private String stoIma = null;
+	private String stoImg = null;
 	private String stoPwd = null;
-	public StoreName() {
-
-		
-
-	}
 	/**
 	 * 
 	 * getStoID:(得到店家对象的ID)<br/>
@@ -206,8 +201,8 @@ public class StoreName {
 	 * @throws 
 	 * @since  CodingExample　Ver 1.1
 	 */
-	public String getStoIma() {
-		return stoIma;
+	public String getStoImg() {
+		return stoImg;
 	}
 	/**
 	 * 
@@ -219,8 +214,8 @@ public class StoreName {
 	 * @throws 
 	 * @since  CodingExample　Ver 1.1
 	 */
-	public void setStoIma(String stoIma) {
-		this.stoIma = stoIma;
+	public void setStoImg(String stoImg) {
+		this.stoImg = stoImg;
 	}
 	/**
 	 * 
@@ -248,15 +243,18 @@ public class StoreName {
 	public void setStoPwd(String stoPwd) {
 		this.stoPwd = stoPwd;
 	}
-	public StoreName(int stoID, String stoUserName, String stoTel, String stoAddress, String stiName,
-			String stoIntroduction, String stoIma, String stoPwd) {
+	public StoreName(){
+		
+	}
+	public StoreName(int stoID, String stoUserName, String stoTel, String stoAddress, String stoName,
+			String stoIntroduction, String stoImg, String stoPwd) {
 		this.stoID = stoID;
 		this.stoUserName = stoUserName;
 		this.stoTel = stoTel;
 		this.stoAddress = stoAddress;
-		this.stoName = stiName;
+		this.stoName = stoName;
 		this.stoIntroduction = stoIntroduction;
-		this.stoIma = stoIma;
+		this.stoImg = stoImg;
 		this.stoPwd = stoPwd;
 	}
 

@@ -40,7 +40,7 @@ public class Student {
 	private String stuUgrade = null;
 	private String stuMajor = null;
 	private String stuSigner = null;
-	
+	private int stuPoints = 0;
 	private School school = null;
 	private String stuPwd = null;
 
@@ -64,6 +64,7 @@ public class Student {
 		this.stuUgrade = stuUgrade;
 		this.stuMajor = stuMajor;
 		this.stuSigner = stuSigner;
+		this.stuPoints = stuPoints;
 		this.school = school;
 		this.stuPwd = stuPwd;
 	}
@@ -357,9 +358,35 @@ public class Student {
 		this.stuSigner = stuSigner;
 	}
 
-	
+	/**
+	 * 
+	 * getStuPoints:(得到学生的点赞数)<br/>
+	 *
+	 * 
+	 * @param @return
+	 *            设定文件
+	 * @return int DOM对象
+	 * @throws @since
+	 *             CodingExample Ver 1.1
+	 */
+	public int getStuPoints() {
+		return stuPoints;
+	}
 
-	
+	/**
+	 * 
+	 * setStuPoints:(设置学生的点赞数)<br/>
+	 *
+	 * 
+	 * @param @param
+	 *            stuPoints 设定文件
+	 * @return void DOM对象
+	 * @throws @since
+	 *             CodingExample Ver 1.1
+	 */
+	public void setStuPoints(int stuPoints) {
+		this.stuPoints = stuPoints;
+	}
 
 	/**
 	 * 

@@ -20,8 +20,6 @@ import java.sql.Statement;
 
 import org.junit.Test;
 
-import com.mysql.jdbc.log.Log;
-import com.xuetu.dao.LoginDao;
 import com.xuetu.utils.DBconnection;
 
 /**
@@ -41,8 +39,15 @@ public class MyTest {
 	
 	@Test
 	public void select() throws SQLException{
-		LoginDao dao = new LoginDao();
-		dao.getStoreName("name");
+		Connection connection = DBconnection.getConnection();
+		String sql = "desc student;";
+		Statement statement = connection.createStatement();
+		ResultSet query = statement.executeQuery(sql);
+		while (query.next()) {
+			String name = query.getString(1);
+			System.out.println(name);
+			
+		}
 	}
 	
 	
