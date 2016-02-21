@@ -83,6 +83,7 @@ public class VerifyCodeServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		// 将认证码存入SESSION
 		session.setAttribute("rand", sRand);
+		
 
 		// 图象生效
 		g.dispose();

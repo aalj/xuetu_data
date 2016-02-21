@@ -31,10 +31,15 @@ public class StoreName {
 	
 	private String stoTel = null;
 	private String stoAddress = null;
-	private String stiName = null;
+	private String stoName = null;
 	private String stoIntroduction = null;
 	private String stoIma = null;
 	private String stoPwd = null;
+	public StoreName() {
+
+		
+
+	}
 	/**
 	 * 
 	 * getStoID:(得到店家对象的ID)<br/>
@@ -149,8 +154,8 @@ public class StoreName {
 	 * @throws 
 	 * @since  CodingExample　Ver 1.1
 	 */
-	public String getStiName() {
-		return stiName;
+	public String getStoName() {
+		return stoName;
 	}
 	/**
 	 * 
@@ -162,8 +167,8 @@ public class StoreName {
 	 * @throws 
 	 * @since  CodingExample　Ver 1.1
 	 */
-	public void setStiName(String stiName) {
-		this.stiName = stiName;
+	public void setStoName(String stoName) {
+		this.stoName = stoName;
 	}
 	/**
 	 * 
@@ -249,7 +254,7 @@ public class StoreName {
 		this.stoUserName = stoUserName;
 		this.stoTel = stoTel;
 		this.stoAddress = stoAddress;
-		this.stiName = stiName;
+		this.stoName = stiName;
 		this.stoIntroduction = stoIntroduction;
 		this.stoIma = stoIma;
 		this.stoPwd = stoPwd;

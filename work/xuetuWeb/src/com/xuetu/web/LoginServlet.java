@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.xuetu.service.LoginService;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -25,6 +27,18 @@ public class LoginServlet extends HttpServlet {
 		String username =new String( request.getParameter("username").getBytes("iso8859-1"),"utf-8");
 		String userpass = new String(request.getParameter("userpass").getBytes("iso8859-1"),"utf-8");
 		String valiimage = new String(request.getParameter("valiimage").getBytes("iso8859-1"),"utf-8");
+		//得到验证码的缓存
+		String systemVailimage=(String) request.getSession().getAttribute("rand");
+		if (systemVailimage.equals(valiimage)) {
+			LoginService loginService = new LoginService();
+			if(loginService.verificationNamePwd(username, userpass)){
+				request.getRequestDispatcher("/index.html").forward(request, response);
+			}
+		}else{
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			
+		}
+		
 		
 		
 		
