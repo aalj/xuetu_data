@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
@@ -55,7 +56,7 @@
                         <tr>
                             <td width="30%" rowspan="5">&nbsp;</td>
                             <td valign="top" id="form">
-                                <form action="/xuetuWeb/LoginServlet" method="get" >
+                                <form action="/xuetuWeb/LoginServlet" method="post" >
                                     <table valign="top" width="50%">
                                         <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:16px;">RainMan 网站管理后台</h4></td></tr>
                                         <tr><td>管理员：</td><td><input type="text" name="username" value="" /></td></tr>

@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.xuetu.entity.StoreName;
 import com.xuetu.service.LoginService;
 
 /**
@@ -27,21 +29,42 @@ public class LoginServlet extends HttpServlet {
 		String username =new String( request.getParameter("username").getBytes("iso8859-1"),"utf-8");
 		String userpass = new String(request.getParameter("userpass").getBytes("iso8859-1"),"utf-8");
 		String valiimage = new String(request.getParameter("valiimage").getBytes("iso8859-1"),"utf-8");
+		System.out.println(username+"\t"+userpass);
+		HttpSession session = request.getSession();
 		//得到验证码的缓存
-		String systemVailimage=(String) request.getSession().getAttribute("rand");
-		if (systemVailimage.equals(valiimage)) {
+		String systemVailimage=(String) session.getAttribute("rand");
+//		if (systemVailimage.equals(valiimage)) {
 			LoginService loginService = new LoginService();
-			if(loginService.verificationNamePwd(username, userpass)){
-				request.getRequestDispatcher("/index.html").forward(request, response);
+			StoreName storeName = loginService.getStoreName(username, userpass);
+			if(IsLogin(storeName,username, userpass)){
+				System.out.println(storeName);
+				session.setAttribute("storeNameId", storeName.getStoID());
+				session.setAttribute("storeNameName", storeName.getStoUserName());
+				request.getRequestDispatcher("/home_page.jsp").forward(request, response);
+				
+			}else{
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
+				session.setAttribute("flagname", "账号密码错误");
+				
 			}
-		}else{
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			
+//		}else{
+//			request.getRequestDispatcher("/index.jsp").forward(request, response);
+//			session.setAttribute("flagval", "验证码错误");
+//			
+//		}
+		
+		
+		
+		
+		
+	}
+
+	private boolean IsLogin(StoreName storeName,String username, String userpass) {
+		if(username.equals(storeName.getStoUserName())&&userpass.equals(storeName.getStoPwd())){
+			return true;
 		}
 		
-		
-		
-		
+		return false;
 		
 	}
 
