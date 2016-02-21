@@ -61,7 +61,7 @@ public class LoginDao {
 				//stoIntroduction
 				storeName.setStoIntroduction(query.getString(6));
 				//stoIma
-				storeName.setStoIma(query.getString(7));
+				storeName.setStoImg(query.getString(7));
 				//stoPwd
 				storeName.setStoPwd(query.getString(8));
 				
