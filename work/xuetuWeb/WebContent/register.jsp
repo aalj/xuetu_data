@@ -165,11 +165,13 @@ function showImage()
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
+                                                        <form name="imgForm" method="post" action="/xuetuWeb/ImgServlet">
                                                         <td id="imgName">店铺图片</td>
                                                         <td><input type="file" name="sto_img" onchange="showImage()" /><br/>
-</td>
-                                                        
+                                                        <input type="submit" name="imgSub" value="上传"/>
+														</td> 
                                                         <td id="imgPrev" align="center">图片预览位置</td>
+                                                        </form>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
