@@ -13,6 +13,7 @@
 
 package com.xuetu.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -88,6 +89,74 @@ public class CouponDao2 {
 			}
 		}
 
+	}
+	/**
+	 * 
+	 * queryLimitCouponList:(分组查询coupon数据表)<br/>
+	
+	 *
+	 * @param  @param page
+	 * @param  @param num
+	 * @param  @param storeNameId
+	 * @param  @return    设定文件
+	 * @return List<Coupon>    DOM对象
+	 * @throws 
+	 * @since  CodingExample　Ver 1.1
+	 */
+	public List<Coupon> queryLimitCouponList(int page,int num,int storeNameId) {
+		Connection conn = null;
+		PreparedStatement statement = null;
+		ResultSet query = null;
+		try {
+			conn = DBconnection.getConnection();
+			String sql = "select * from coupon where sto_id=? limit ?,?;";
+			
+			
+			statement = conn.prepareStatement(sql);
+			statement.setInt(1, storeNameId);
+			statement.setInt(2, (page-1)*num);
+			statement.setInt(3, num);
+			
+			query  = statement.executeQuery();
+			List<Coupon> listCoupon = new ArrayList<>();
+			Coupon coupon = null;
+			while (query.next()) {
+				coupon = new Coupon();
+				coupon.setCouID(query.getInt("cou_id"));
+				StoreName storeName = dao2.getStoreNameById(query.getInt("sto_id"));
+				coupon.setStoreName(storeName);
+				coupon.setCouInfo(query.getString("cou_info"));
+				coupon.setConNum(query.getInt("cou_num"));
+				
+				coupon.setConValidity(query.getDate("cou_Validity"));
+				coupon.setCoouRedeemPoints(query.getInt("cou_redeem_points"));
+				coupon.setCouName(query.getString("cou_name"));
+				coupon.setCouPrice(query.getInt("cou_price"));
+				listCoupon.add(coupon);
+				
+			}
+			return listCoupon;
+		} catch (SQLException e) {
+			
+			//
+			e.printStackTrace();
+			return null;
+			
+		} finally {
+			try {
+				if (conn != null && statement != null && query != null) {
+					conn.close();
+					statement.close();
+					query.close();
+				}
+			} catch (SQLException e) {
+				
+				//
+				e.printStackTrace();
+				
+			}
+		}
+		
 	}
 
 	/**
@@ -234,5 +303,10 @@ public class CouponDao2 {
 		
 
 	}
+	
+	
+	
+			
+	
 
 }
