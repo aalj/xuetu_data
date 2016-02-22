@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.xuetu.entity.Coupon;
 import com.xuetu.service.CouService;
@@ -43,6 +44,8 @@ public class couAddServlet extends HttpServlet {
 		/*设置编码
 		 * 获得页面数据，封装成Coupon对象，调用Service层的添加方法
 		 */
+		HttpSession session = request.getSession();
+		int sto_id = Integer.parseInt(session.getAttribute("storeNameId").toString());
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		String cou_num = request.getParameter("cou_num");
@@ -50,8 +53,7 @@ public class couAddServlet extends HttpServlet {
 		String cou_name = request.getParameter("cou_name");
 		String cou_price = request.getParameter("cou_price");
 		String cou_Validity = request.getParameter("cou_Validity");
-		String cou_redeem_points = request.getParameter("cou_redeem_points");
-		
+		String cou_redeem_points = request.getParameter("cou_redeem_points");	
 		try {
 			//创建Coupon对象
 			Coupon coupon = new Coupon();
@@ -61,11 +63,15 @@ public class couAddServlet extends HttpServlet {
 			coupon.setConValidity(sdf.parse(cou_Validity));
 			coupon.setCouName(cou_name);
 			coupon.setCouPrice(Integer.parseInt(cou_price));
+			coupon.setCouInfo(cou_info);
+			//调用Service方法添加优惠券
+			couService.CouponAdd(coupon,sto_id);
+			request.getRequestDispatcher("/CouponListServlet").forward(request, response);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		//调用Service方法添加优惠券,sto_id还没获取
-//		couService.CouponAdd(coupon, sto_id);
+		
+		
 	}
 
 }

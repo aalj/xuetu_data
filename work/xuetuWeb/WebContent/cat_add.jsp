@@ -12,10 +12,10 @@
  function Submit(){
 	var insertForm = document.getElementsByName("insertForm")[0];
 	insertForm.action ="/xuetuWeb/couAddServlet";
-	insertForm.submit();
+	insertForm.submit(); 
 } 
 $(document).ready(function(e) {
-	$(":button[name=submit]").click(function(e) {
+	$(":button[name=sub]").click(function(e) {
 		var points = $(":input[name=cou_redeem_points]").val();
 		var num = $(":input[name=cou_num]").val();
 		var validity = $(":input[name=cou_Validity]").val();
@@ -26,16 +26,16 @@ $(document).ready(function(e) {
 		{
         	alert("请填写必填项！");
 		}
-		else
-		{
-			Confirm();
-			alert("增加成功");
-		}
+			/* Submit(); */
+			else{
+				Submit();
+				alert("添加成功");
+			}
+			
 })
     });
     </script>
     <body>
-    <form name="insertForm" method="post">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
             <tr>
@@ -92,14 +92,6 @@ $(document).ready(function(e) {
                                                         <td></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
-                                                      <tr>
-                                                        <td width="2%">&nbsp;</td>
-                                                        <td>优惠券图片</td>
-                                                        <td width="20%"><input type="file" name="files" /><br/>
-<input type="submit" name="upload" value="上传"/></td>
-                                                        <td></td>
-                                                        <td width="2%">&nbsp;</td>
-                                                    </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>优惠券折扣</td>
@@ -118,7 +110,7 @@ $(document).ready(function(e) {
                                                         <td width="2%">&nbsp;</td>
                                                         <td>优惠券数量：</td>
                                                         <td width="20%"><input class="text" type="text" name="cou_num" value="" /></td>
-                                                        <td>举例:55</td>
+                                                        <td></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
@@ -137,7 +129,7 @@ $(document).ready(function(e) {
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="button" value="提交" name="submit" onclick="Submit"/></td>
+                                                        <td colspan="3"><input class="btn" type="button" value="提交" name="sub"/></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>
@@ -178,6 +170,5 @@ $(document).ready(function(e) {
                 </td>           
             </tr>
         </table>
-        </form>
     </body>
 </html>

@@ -9,16 +9,25 @@
 </head>
 <script src="jquery-1.11.1.js"></script>
 <script>
- function Submit(){
+/*  function Submit(){
 	var registerForm = document.getElementsByName("registerForm")[0];
 	registerForm.action ="/xuetuWeb/RegisterServlet";
 	registerForm.submit();
-} 
+}  */
 /* function Confirm(){
 	var insertForm = document.getElementsByName("insertForm")[0];
 	insertForm.action ="/studentweb/insert";
 	insertForm.submit();
 } */
+//验证用户名不唯一
+$(document).ready(function(e) {
+	$(":button[name=val_sto_name]").click(function(e) {
+		var valForm = document.getElementsByName("valForm")[0];
+		valForm.action="/xuetuWeb/ValiStoName";
+		alert("ok");
+		valForm.submit();
+	});
+});
 $(document).ready(function(e) {
 	$(":button[name=sub]").click(function(e) {
 		var sto_user_name = $(":input[name=sto_user_name]").val();
@@ -59,6 +68,20 @@ function showImage()
     // 插入图像到页面中
     document.getElementById('imgPrev').appendChild(img);
 }
+    //验证两次密码不一致的提示
+    function validate() {
+              var pw1 = document.getElementById("sto_pwd").value;
+              var pw2 = document.getElementById("sto_pwd2").value;
+              if(pw1 == pw2) {
+                  document.getElementById("pwdConfirmText").innerHTML="<font color='green'>两次密码相同</font>";
+                  document.getElementById("sub").disabled = false;
+              }
+              else {
+                  document.getElementById("pwdConfirmText").innerHTML="<font color='red'>两次密码不相同</font>";
+                document.getElementById("sub").disabled = true;
+              }
+          }
+
     //获取上传图片的真实路径
     function getPath(obj) {
     	
@@ -128,34 +151,37 @@ function showImage()
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form name="registerForm" method="post">
+                                            <form name="registerForm" method="post" action="/xuetuWeb/RegisterServlet">
                                                 <table width="100%" class="cont">
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>用户名：</td>
+                                                        <form name="valForm" method="post">
+                                                        
                                                         <td><input class="text" type="text" name="sto_user_name"/></td>
-                                                        <td></td>
+														<td><input type="button" value="验证用户名是否唯一" name="val_sto_name"/><c:if test="${flag==0}">用户名已存在！</c:if><c:if test="${flag==1}">用户名可用！</c:if></td>
+                                                        </form>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td id="imgName">店铺图片</td>
-                                                        <td><input type="file" id="sto_img" onchange="showImage()" /><br/>
+                                                        <td><input type="file" name="sto_img" onchange="showImage()" /><br/>
 </td>
                                                         
-                                                        <td id="imgPrev" align="center"></td>
+                                                        <td id="imgPrev" align="center">图片预览位置</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>密码：</td>
-                                                        <td width="20%"><input class="text" type="text" name="sto_pwd" value="" /></td>
-                                                        <td>举例:55</td>
+                                                        <td width="20%"><input class="text" type="password" name="sto_pwd" value="" /></td>
+                                                        <td></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="2%">&nbsp;</td>
                                                         <td>确认密码：</td>
-                                                        <td width="20%"><input class="text" type="text" name="sto_pwdConfrim" value="" /></td>
+                                                        <td width="20%"><input class="text" type="password" name="sto_pwd2" onKeyUp="validate()"/></td>
                                                         <td><c:if test=""><span id="pwdConfirmText"  style="color:red">两次输入不一致！</span></c:if></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
@@ -172,7 +198,7 @@ function showImage()
                                                         <td width="2%">&nbsp;</td>
                                                         <td>店家地址：</td>
                                                         <td width="20%"><input class="text" type="text" name="sto_address" value="" /></td>
-                                                        <td></td>
+                                                        <td>如XX省XX市XX路</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     
@@ -188,12 +214,12 @@ function showImage()
                                                         <td width="2%">&nbsp;</td>
                                                         <td>店家介绍</td>
                                                         <td width="20%"><textarea name="sto_introduction"></textarea></td>
-                                                        <td>格式:2000-2-15</td>
+                                                        <td>关于店家或优惠券的说明</td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="button" value="提交" name="sub"/></td>
+                                                        <td colspan="3"><input class="btn" type="submit" value="提交" name="sub"/></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>

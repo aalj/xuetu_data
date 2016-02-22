@@ -27,15 +27,18 @@ package com.xuetu.service;
  */
 
 import com.xuetu.dao.StoreNameDao;
+import com.xuetu.dao.StoreNameDao2;
 import com.xuetu.entity.StoreName;
 public class StorenameService{
 	private StoreNameDao storeNameDao = new StoreNameDao();
-	
+	private StoreNameDao2 storeNameDao2 = new StoreNameDao2();
 	public void registerStore(StoreName storeName){
 		storeNameDao.addStoreName(storeName);
 	}
 	
-	
+	public StoreName Valisto_usernameOnly(String username){
+		return storeNameDao2.getStoreNameByName(username);
+	}
 	
 	
 	
