@@ -1,6 +1,5 @@
 package com.librarybooksearch.ui;
 
-
 import com.librarybooksearch.fragment.CouponFrag;
 import com.librarybooksearch.fragment.FindFrag;
 import com.librarybooksearch.fragment.HomePageFrag;
@@ -9,6 +8,7 @@ import com.librarybooksearch.fragment.QuestionFrag;
 import com.xuetu.R;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * 
@@ -40,6 +39,17 @@ public class MainActivity extends FragmentActivity {
 	LinearLayout recommend_page = null;
 	LinearLayout personal_page = null;
 
+	HomePageFrag homePageFrag;
+	FindFrag findFrag;
+	CouponFrag couponFrag;
+	QuestionFrag questionFrag;
+	PersonalFrag personalFrag;
+	Fragment[] fragments = null;
+	
+	
+	
+	int showFragment = 2;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,6 +67,7 @@ public class MainActivity extends FragmentActivity {
 	 *             CodingExample Ver 1.1
 	 */
 	private void initView() {
+		fragments = new Fragment[5];
 		title = (TextView) findViewById(R.id.title);
 		search_page = (LinearLayout) findViewById(R.id.search_page);
 		search_page1 = (LinearLayout) findViewById(R.id.search_page1);
@@ -66,9 +77,31 @@ public class MainActivity extends FragmentActivity {
 		manager = getSupportFragmentManager();
 		beginTransaction = manager.beginTransaction();
 
-		HomePageFrag homePageFrag = new HomePageFrag();
-		beginTransaction.replace(R.id.frag_page, homePageFrag);
-		beginTransaction.commit();
+		homePageFrag = new HomePageFrag();
+		findFrag = new FindFrag();
+		couponFrag = new CouponFrag();
+		questionFrag = new QuestionFrag();
+		personalFrag = new PersonalFrag();
+		fragments[0] = couponFrag;
+		fragments[1] = findFrag;
+		fragments[2] = homePageFrag;
+		fragments[3] = questionFrag;
+		fragments[4] = personalFrag;
+
+		beginTransaction.add(R.id.frag_page, homePageFrag)
+				.add(R.id.frag_page, findFrag)
+				.add(R.id.frag_page, couponFrag)
+				.add(R.id.frag_page, questionFrag)
+				.add(R.id.frag_page, personalFrag);
+
+		beginTransaction.hide(couponFrag)
+		.hide(findFrag)
+		.hide(personalFrag)
+		.hide(questionFrag)
+		.show(homePageFrag)
+				.commit();
+
+		
 		beginTransaction = null;
 
 		search_page.setBackgroundResource(R.drawable.bg_content_card);
@@ -91,12 +124,14 @@ public class MainActivity extends FragmentActivity {
 	 */
 	public void onclick(View v) {
 		beginTransaction = manager.beginTransaction();
+		int index = 2;
 		switch (v.getId()) {
 		case R.id.search_page:// 搜索页面点击
-			CouponFrag couponFrag = new CouponFrag();
-			beginTransaction.replace(R.id.frag_page, couponFrag);
-			beginTransaction.commit();
-			beginTransaction = null;
+			index =0;
+			// CouponFrag couponFrag = new CouponFrag();
+			// beginTransaction.replace(R.id.frag_page, couponFrag);
+//			beginTransaction.commit();
+//			beginTransaction = null;
 
 			title.setText("券");
 			search_page.setBackgroundResource(R.drawable.btn_app_download_d);
@@ -107,10 +142,11 @@ public class MainActivity extends FragmentActivity {
 			personal_page.setBackgroundResource(R.drawable.bg_content_card);
 			break;
 		case R.id.search_page1:// 发现页面
-			FindFrag findFrag = new FindFrag();
-			beginTransaction.replace(R.id.frag_page, findFrag);
-			beginTransaction.commit();
-			beginTransaction = null;
+			index=1;
+			// FindFrag findFrag = new FindFrag();
+			// beginTransaction.replace(R.id.frag_page, findFrag);
+//			beginTransaction.commit();
+//			beginTransaction = null;
 
 			search_page.setBackgroundResource(R.drawable.bg_content_card);
 			title.setText("发现");
@@ -120,10 +156,11 @@ public class MainActivity extends FragmentActivity {
 			personal_page.setBackgroundResource(R.drawable.bg_content_card);
 			break;
 		case R.id.search_page2:// 首页面
-			HomePageFrag homePageFrag = new HomePageFrag();
-			beginTransaction.replace(R.id.frag_page, homePageFrag);
-			beginTransaction.commit();
-			beginTransaction = null;
+			index=2;
+			// HomePageFrag homePageFrag = new HomePageFrag();
+			// beginTransaction.replace(R.id.frag_page, homePageFrag);
+//			beginTransaction.commit();
+//			beginTransaction = null;
 
 			search_page.setBackgroundResource(R.drawable.bg_content_card);
 			title.setText("首页");
@@ -133,11 +170,12 @@ public class MainActivity extends FragmentActivity {
 			personal_page.setBackgroundResource(R.drawable.bg_content_card);
 			break;
 		case R.id.recommend_page:// 问题页面
-			QuestionFrag questionFrag = new QuestionFrag();
-			beginTransaction.replace(R.id.frag_page, questionFrag);
+			index =3;
+			// QuestionFrag questionFrag = new QuestionFrag();
+			// beginTransaction.replace(R.id.frag_page, questionFrag);
 			title.setText("问题");
-			beginTransaction.commit();
-			beginTransaction = null;
+//			beginTransaction.commit();
+//			beginTransaction = null;
 			search_page.setBackgroundResource(R.drawable.bg_content_card);
 			search_page1.setBackgroundResource(R.drawable.bg_content_card);
 			search_page2.setBackgroundResource(R.drawable.bg_content_card);
@@ -145,11 +183,12 @@ public class MainActivity extends FragmentActivity {
 			personal_page.setBackgroundResource(R.drawable.bg_content_card);
 			break;
 		case R.id.personal_page:// 个人中心页面
-			PersonalFrag personalFrag = new PersonalFrag();
-			beginTransaction.replace(R.id.frag_page, personalFrag);
+			index = 4;
+			// PersonalFrag personalFrag = new PersonalFrag();
+			// beginTransaction.replace(R.id.frag_page, personalFrag);
 			title.setText("个人中心");
-			beginTransaction.commit();
-			beginTransaction = null;
+//			beginTransaction.commit();
+//			beginTransaction = null;
 			search_page.setBackgroundResource(R.drawable.bg_content_card);
 			search_page1.setBackgroundResource(R.drawable.bg_content_card);
 			search_page2.setBackgroundResource(R.drawable.bg_content_card);
@@ -161,6 +200,21 @@ public class MainActivity extends FragmentActivity {
 			break;
 
 		}
+		
+		if(showFragment!= index){
+			FragmentTransaction trx = getSupportFragmentManager()
+					.beginTransaction();
+			
+			trx.hide(fragments[showFragment]);
+			if (!fragments[index].isAdded()) {
+				trx.add(R.id.frag_page, fragments[index]);
+			}
+			trx.show(fragments[index]).commit();
+			
+		}
+		
+		showFragment = index;
+		
 	}
 
 	@Override
