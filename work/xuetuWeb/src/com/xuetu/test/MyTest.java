@@ -21,9 +21,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.xuetu.dao.CouponDao2;
-import com.xuetu.entity.Coupon;
-import com.xuetu.utils.DBconnection;
+
 
 /**
  * ClassName:MyTest<br/>
@@ -42,8 +40,7 @@ public class MyTest {
 	
 	@Test
 	public void select() throws SQLException{
-		CouponDao2 couponDao2 = new CouponDao2();
-		couponDao2.delCoupon(3);
+
 	}
 	
 	

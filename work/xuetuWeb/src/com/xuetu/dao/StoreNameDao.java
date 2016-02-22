@@ -40,17 +40,22 @@ public class StoreNameDao {
 		try {
 			conn = DBconnection.getConnection();
 			// 2、SQL语句
-			String sql = "insert into storename(storeName,sto_user_name,sto_tel,sto_address,sto_name,sto_introduction,sto_pwd)" + "values (?,?,?,?,?,?,?)";
+			String sql = "insert into storename(sto_name,sto_user_name,sto_tel,sto_address,sto_introduction,sto_pwd)" + "values (?,?,?,?,?,?)";
 			// 3、获得preparedStatement对象
 			prep = conn.prepareStatement(sql);
 			// 4、设置？的值
+			//sto_name
 			prep.setString(1, storeName.getStoName());
+			//sto_user_name
 			prep.setString(2, storeName.getStoUserName());
+			//sto_tel
 			prep.setString(3, storeName.getStoTel());
+			//sto_address
 			prep.setString(4, storeName.getStoAddress());
-			prep.setString(5, storeName.getStoName());
-			prep.setString(6, storeName.getStoIntroduction());
-			prep.setString(7, storeName.getStoPwd());
+			//sto_introduction
+			prep.setString(5, storeName.getStoIntroduction());
+			//sto_pwd
+			prep.setString(6, storeName.getStoPwd());
 			// 5、执行sql语句
 			prep.executeUpdate();
 		} catch (Exception e) {
@@ -60,11 +65,10 @@ public class StoreNameDao {
 		} finally {
 			// 6、关闭资源
 			try {
-				if (prep != null)
+				if (prep != null&&conn != null)
 					prep.close();
-				if (conn != null)
 					conn.close();
-			} catch (Exception e) {
+				} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
 		}

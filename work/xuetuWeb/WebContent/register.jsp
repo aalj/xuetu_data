@@ -10,9 +10,9 @@
 <script src="jquery-1.11.1.js"></script>
 <script>
  function Submit(){
-	var insertForm = document.getElementsByName("registerForm")[0];
-	insertForm.action ="/xuetuWeb/RegisterServlet";
-	insertForm.submit();
+	var registerForm = document.getElementsByName("registerForm")[0];
+	registerForm.action ="/xuetuWeb/RegisterServlet";
+	registerForm.submit();
 } 
 /* function Confirm(){
 	var insertForm = document.getElementsByName("insertForm")[0];
@@ -20,7 +20,7 @@
 	insertForm.submit();
 } */
 $(document).ready(function(e) {
-	$(":button[name=submit]").click(function(e) {
+	$(":button[name=sub]").click(function(e) {
 		var sto_user_name = $(":input[name=sto_user_name]").val();
 		var sto_tel = $(":input[name=sto_tel]").val();
 		var sto_address = $(":input[name=sto_address]").val();
@@ -32,18 +32,24 @@ $(document).ready(function(e) {
 		{
         	alert("请填写必填项！");
 		}
+  /*        else if(sto_pwd!=sto_pwdCondirm){
+        	var pwdConfirmText = $("span[name=pwdConfirmText]").val();
+        	pwdConfirmText.hidden ="false";
+        } 
+         else  */
+        	Submit(); 
 })
     });
     </script>
     <script type="text/javascript">
-    var file = document.getElementById("sto_img");
-    file.select();
-    var realPath = document.selection.createRange().text;
+	//参数obj为input file对象
+	 var realPath = getPath(document.getElementById("sto_img"));
+   /*  file.select();
+    var realPath = document.selection.createRange().text; */
 function showImage()
 {
     // 获取文件路径
-    var path = getPath(document)
-    var path = document.getElementById('sto_img').value;
+    var path = getPath(document.getElementById('sto_img'));
     // 显示文件路径
     document.getElementById('imgName').innerHTML = path;
     // 创建 img
@@ -53,29 +59,28 @@ function showImage()
     // 插入图像到页面中
     document.getElementById('imgPrev').appendChild(img);
 }
-//参数obj为input file对象
-function getPath(file) {
-         if(file)
-     {  
-         if (window.navigator.userAgent.indexOf("MSIE")>=1)
-        {
-        	 file.select();
-            return document.selection.createRange().text;
-        }   
-         else if(window.navigator.userAgent.indexOf("Firefox")>=1)
-         {
-            if(file.files)
-             {
-                    return file.files.item(0).getAsDataURL();
-              }
-              return file.value;
-         }
-        return file.value;
-    }
-}
+    //获取上传图片的真实路径
+    function getPath(obj) {
+    	
+        if (obj) {
+            if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+            	alert(document.selection.createRange().text);
+                obj.select(); return document.selection.createRange().text;
+            }
+            else if (window.navigator.userAgent.indexOf("Firefox") >= 1) {
+                if (obj.files) {
+                	alert(obj.files.item(0).getAsDataURL());
+                    return obj.files.item(0).getAsDataURL();
+                }
+                alert(obj.value);
+                return obj.value;
+            }
+            alert(obj.value);
+            return obj.value;
+        }
+    } 
 </script>
     <body>
-    <form name="registerForm" post="post">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
             <tr>
@@ -123,12 +128,12 @@ function getPath(file) {
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form name="insertForm" method="post">
+                                            <form name="registerForm" method="post">
                                                 <table width="100%" class="cont">
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>用户名：</td>
-                                                        <td><input class="text" type="text" name="sto_user_name" value="" /></td>
+                                                        <td><input class="text" type="text" name="sto_user_name"/></td>
                                                         <td></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
@@ -151,7 +156,7 @@ function getPath(file) {
                                                         <td width="2%">&nbsp;</td>
                                                         <td>确认密码：</td>
                                                         <td width="20%"><input class="text" type="text" name="sto_pwdConfrim" value="" /></td>
-                                                        <td></td>
+                                                        <td><c:if test=""><span id="pwdConfirmText"  style="color:red">两次输入不一致！</span></c:if></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     
@@ -175,7 +180,7 @@ function getPath(file) {
                                                         <td width="2%">&nbsp;</td>
                                                         <td>店铺名：</td>
                                                         <td width="20%"><input class="text" type="text" name="sto_name" value="" /></td>
-                                                        <td>格式:2000-2-15</td>
+                                                        <td></td>
                                                         <td width="2%">&nbsp;</td>
                                                     </tr>
                                                     
@@ -188,7 +193,7 @@ function getPath(file) {
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="button" value="提交" name="submit" onclick="Submit"/></td>
+                                                        <td colspan="3"><input class="btn" type="button" value="提交" name="sub"/></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>
@@ -229,6 +234,5 @@ function getPath(file) {
                 </td>           
             </tr>
         </table>
-        </form>
     </body>
 </html>
