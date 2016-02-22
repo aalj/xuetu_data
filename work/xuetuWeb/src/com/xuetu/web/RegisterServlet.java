@@ -62,11 +62,12 @@ public class RegisterServlet extends HttpServlet {
 //		storeName.setStoImg(sto_img);
 		//调用Service层方法将storeName添加到数据库
 		storenameService.registerStore(storeName);
+		request.getRequestDispatcher("/xuetuWeb/LoginServlet").forward(request, response);
 		
 		//处理文件上传
 		//获得普通域，不变
 		//获得上传文件
-		request.getRequestDispatcher("/xuetuWeb/LoginServlet").forward(request, response);
+
 	}
 
 }

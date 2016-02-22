@@ -82,78 +82,31 @@
                                                         </a>&nbsp;&nbsp;<a href="/xuetuWeb/DeleteCouponServlet?strID=${type.couID}">删除</a></td>
                                                     </tr>
 												</c:forEach>
-                                                    <tr align="center" class="d">
-                                                        <td>1</td>
-                                                        <td><a href="#">我爱我家</a></td>
-                                                        <td>5</td>
-                                                        <td>11</td>
-                                                        <td>2222-12-22</td>
-                                                        <td><a href="./index.jsp" target="">查看</a>&nbsp;&nbsp;<a href="#">编辑</a>&nbsp;&nbsp;<a href="#">删除</a> </td>
-                                                    </tr><!--                                                     <tr align="center" class="d"> -->
-<!--                                                         <td>3</td> -->
-<!--                                                         <td>我爱我家</td> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>23</td> -->
-<!--                                                         <td>顶部底部</td> -->
-<!--                                                         <td>编辑 删除 </td> -->
-<!--                                                     </tr> -->
-<!--                                                     <tr align="center" class="d"> -->
-<!--                                                         <td>4</td> -->
-<!--                                                         <td>我爱我家</td> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>23</td> -->
-<!--                                                         <td>顶部底部</td> -->
-<!--                                                         <td>编辑 删除</td> -->
-<!--                                                     </tr> -->
-<!--                                                     <tr align="center" class="d"> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>我爱我家</td> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>32</td> -->
-<!--                                                         <td>顶部底部</td> -->
-<!--                                                         <td>编辑 删除 </td> -->
-<!--                                                     </tr> -->
-<!--                                                     <tr align="center" class="d"> -->
-<!--                                                         <td>6</td> -->
-<!--                                                         <td>我爱我家</td> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>44</td> -->
-<!--                                                         <td>顶部底部</td> -->
-<!--                                                         <td>编辑 删除 </td> -->
-<!--                                                     </tr> -->
-<!--                                                     <tr align="center" class="d"> -->
-<!--                                                         <td>7</td> -->
-<!--                                                         <td>我爱我家</td> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>55</td> -->
-<!--                                                         <td>顶部底部</td> -->
-<!--                                                         <td>编辑 删除 </td> -->
-<!--                                                     </tr> -->
-<!--                                                     <tr align="center" class="d"> -->
-<!--                                                         <td>8</td> -->
-<!--                                                         <td>我爱我家</td> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>11</td> -->
-<!--                                                         <td>顶部底部</td> -->
-<!--                                                         <td>编辑 删除 </td> -->
-<!--                                                     </tr> -->
-<!--                                                     <tr align="center" class="d"> -->
-<!--                                                         <td>9</td> -->
-<!--                                                         <td>我爱我家</td> -->
-<!--                                                         <td>5</td> -->
-<!--                                                         <td>21</td> -->
-<!--                                                         <td>顶部底部</td> -->
-<!--                                                         <td>编辑 删除 </td> -->
-<!--                                                     </tr> -->
                                                 </table>
                                                 <table width='100%' class="tex004">
 			<tr>
-				<td align="center"><a href='#'
-					onClick='pageQuery(1)'><span>首页</span></a> <a
-					href='#'><span>下一页</span></a>
-					<a href='#'
-					onClick="pageQuery(4)">尾页</a></td>
-				<td align='center'>第${num}条&nbsp;&nbsp;共${pageNum }页&nbsp;&nbsp;第${page}页</td>
+				<td align="center"><a href='/xuetuWeb/CouponListServlet?coupage=1' onClick='pageQuery(1)'><span>首页</span></a> &nbsp;&nbsp;
+					
+					<c:choose>
+					<c:when test="${page==1 }">
+					<a >上一页</a>&nbsp;&nbsp;
+					</c:when>
+					<c:otherwise>
+					<a href='/xuetuWeb/CouponListServlet?coupage=${page-1}'>上一页</a>&nbsp;&nbsp;
+					
+					</c:otherwise>
+					</c:choose>
+					<c:choose>
+					<c:when test="${page<pages}">
+					<a href='/xuetuWeb/CouponListServlet?coupage=${page+1}'><span>下一页</span></a>&nbsp;&nbsp;
+					</c:when>
+					<c:otherwise>
+					<a >下一页</a>&nbsp;&nbsp;
+					</c:otherwise>
+					</c:choose>
+					<a href='/xuetuWeb/CouponListServlet?coupage=${pages}' onClick="pageQuery(4)">尾页</a></td>
+					
+				<td align='center'>共&nbsp;${pages }&nbsp;页&nbsp;&nbsp;第&nbsp;${page}&nbsp;页</td>
 			</tr>
 		</table>
                                             </form>

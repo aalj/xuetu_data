@@ -16,6 +16,7 @@
 	}
 	
 	</script>
+
 </head>
     <body>
         <table width="100%">
@@ -58,10 +59,12 @@
                             <td valign="top" id="form">
                                 <form action="/xuetuWeb/LoginServlet" method="post" >
                                     <table valign="top" width="50%">
-                                        <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:16px;">RainMan 网站管理后台</h4></td></tr>
+                                        <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:16px;">学途  店家管理后台</h4></td></tr>
                                         <tr><td>管理员：</td><td><input type="text" name="username" value="" /></td></tr>
                                         <tr><td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="userpass" value="" /></td></tr>
+                                        
                                         <tr><td>验证码：</td><td><input type="text" name="valiimage" value="" style="width:80px;"/><img src="/xuetuWeb/ValiImage" onclick="changeImg(this)" style="cursor: pointer;"/></td></tr>
+                                        <tr ><td></td><td align="right"><a href='/xuetuWeb/RegisterServlet' style="font-size:12px;">新用户</a></td></tr>
                                         <tr class="bt" align="center"><td>&nbsp;<input type="submit" value="登陆" /></td><td>&nbsp;<input type="reset" value="重填" /></td></tr>
                                     </table>
                                 </form>

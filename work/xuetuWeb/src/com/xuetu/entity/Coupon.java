@@ -35,6 +35,11 @@ public class Coupon {
 	//表示优惠券到期时间
 	private Date conValidity = null;
 	private String couName = null;
+	private int couPrice = 0;
+	private 	int coouRedeemPoints = 0;
+	
+	
+	
 	public String getCouName() {
 		return couName;
 	}
@@ -47,7 +52,7 @@ public class Coupon {
 	public void setCouPrice(int couPrice) {
 		this.couPrice = couPrice;
 	}
-	private int couPrice = 0;
+	
 	public Coupon() {
 
 		// 
@@ -223,7 +228,7 @@ public class Coupon {
 	public void setCoouRedeemPoints(int coouRedeemPoints) {
 		this.coouRedeemPoints = coouRedeemPoints;
 	}
-	private 	int coouRedeemPoints = 0;
+	
 	
 
 }
