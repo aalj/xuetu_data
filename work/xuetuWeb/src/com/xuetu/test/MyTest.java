@@ -17,11 +17,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import org.junit.Test;
 
-import com.xuetu.service.StorenameService;
-import com.xuetu.utils.DBconnection;
+
 
 /**
  * ClassName:MyTest<br/>
@@ -40,8 +40,7 @@ public class MyTest {
 	
 	@Test
 	public void select() throws SQLException{
-		StorenameService storenameService = new StorenameService();
-		
+
 	}
 	
 	

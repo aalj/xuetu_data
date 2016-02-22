@@ -66,15 +66,20 @@
                                                         <th>到期时间</th>
                                                         <th>描述</th>
                                                     </tr>
-                                                    
-                                                   <c:forEach var='type' items='${limitAcconut}'>
+                                                    <c:set var="index" value="0" />
+                                                   <c:forEach var='type' items='${listCoupon}'>
+                                                   <c:set var="index" value="${index+1}" />
                                                     <tr align="center" class="d">
-                                                        <td>1</td>
-                                                        <td><a href="#">我爱我家</a></td>
-                                                        <td>5</td>
-                                                        <td>11</td>
-                                                        <td>2222-12-22</td>
-                                                        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+                                                        <td>${index}</td>
+                                                        
+														
+                                                        <td><a href="#"><c:out value="${type.couName }"></c:out>   </a><p hidden="hidden"><c:out value="${type.couID }"></c:out></p></td>
+                                                        <td><c:out value="${type.couPrice }"></c:out></td>
+                                                        <td><c:out value="${type.conNum }"></c:out></td>
+                                                        <td><c:out value="${type.conValidity }"></c:out></td>
+                                                        <td><a href="/xuetuWeb/ShowCouponServlet?strID=${type.couID}">查看
+                                                        </a>&nbsp;&nbsp;<a href="/xuetuWeb/EditCouponManagerServlet?strID=${type.couID}&flags=1">编辑
+                                                        </a>&nbsp;&nbsp;<a href="/xuetuWeb/DeleteCouponServlet?strID=${type.couID}">删除</a></td>
                                                     </tr>
 												</c:forEach>
                                                     <tr align="center" class="d">
@@ -83,7 +88,7 @@
                                                         <td>5</td>
                                                         <td>11</td>
                                                         <td>2222-12-22</td>
-                                                        <td><a href="#">编辑</a> <a href="#">删除</a> </td>
+                                                        <td><a href="./index.jsp" target="">查看</a>&nbsp;&nbsp;<a href="#">编辑</a>&nbsp;&nbsp;<a href="#">删除</a> </td>
                                                     </tr><!--                                                     <tr align="center" class="d"> -->
 <!--                                                         <td>3</td> -->
 <!--                                                         <td>我爱我家</td> -->
@@ -143,12 +148,12 @@
                                                 </table>
                                                 <table width='100%' class="tex004">
 			<tr>
-				<td align="center"><a href='#' onClick='pageQuery(1)'><span>首页</span></a>
-
-
-					<a href='#' onClick="pageQuery(2)"><span>下一页</span></a> <a
-					href='#' onClick="pageQuery(4)">尾页</a></td>
-				<td align="center">共40项&nbsp;&nbsp;4页</td>
+				<td align="center"><a href='#'
+					onClick='pageQuery(1)'><span>首页</span></a> <a
+					href='#'><span>下一页</span></a>
+					<a href='#'
+					onClick="pageQuery(4)">尾页</a></td>
+				<td align='center'>第${num}条&nbsp;&nbsp;共${pageNum }页&nbsp;&nbsp;第${page}页</td>
 			</tr>
 		</table>
                                             </form>

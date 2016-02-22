@@ -1,9 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="./Style/skin.css" />
 </head>
+<script src="jquery-1.11.1.js"></script>
+<script>
+/* function Submit(){
+	var insertForm = document.getElementsByName("insertForm")[0];
+	insertForm.action ="/studentweb/insert";
+	insertForm.submit();
+} */
+function Confirm(){
+	var insertForm = document.getElementsByName("insertForm")[0];
+	insertForm.action ="/studentweb/insert";
+	insertForm.submit();
+}
+$(document).ready(function(e) {
+	$(":button[name=submit]").click(function(e) {
+		var points = $(":input[name=cou_redeem_points]").val();
+		var num = $(":input[name=cou_num]").val();
+		var validity = $(":input[name=cou_Validity]").val();
+		var info = $(":input[name=cou_info]").val();
+        if(points==""||num==""||validity==""||info=="")
+		{
+        	alert("请填写必填项！");
+		}
+		else
+		{
+			Confirm();
+			alert("增加成功");
+		}
+})
+    });
+    </script>
     <body>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
@@ -13,13 +46,7 @@
                 </td>
                 <td valign="top" background="./Images/content_bg.gif">
                     <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="././Images/content_bg.gif">
-                        <tr>
-                            <td height="31" width="85">
-                                <ul>
-                                    <li class="title">添加栏目</li>
-                                <ul>
-                            </td>
-                        </tr>
+                        <tr><td height="31"><div class="title">添加栏目</div></td></tr>
                     </table>
                 </td>
                 <td width="16" valign="top" background="./Images/mail_right_bg.gif"><img src="./Images/nav_right_bg.gif" width="16" height="29" /></td>
@@ -38,7 +65,7 @@
                                 <table>
                                     <tr>
                                         <td width="100" align="center"><img src="./Images/mime.gif" /></td>
-                                        <td valign="bottom"><h3 style="letter-spacing:1px;">在这里，您可以根据您的需求，填写网站参数！</h3></td>
+                                        <td valign="bottom"><h3 style="letter-spacing:1px;">&nbsp;</h3></td>
                                     </tr>
                                 </table>
                             </td>
@@ -58,39 +85,59 @@
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form action="" method="">
+                                            <form action="/xuetuWeb/ChangeCouponManagerServlet" method="post">
                                                 <table width="100%" class="cont">
-                                                    <tr>
-                                                        <td width="2%">&nbsp;</td>
-                                                        <td>网站名称：</td>
-                                                        <td width="20%"><input class="text" type="text" name="cat_name" value="" /></td>
-                                                        <td>网站名称，将显示在导航条和标题中</td>
-                                                        <td width="2%">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="2%">&nbsp;</td>
-                                                        <td>网站 URL：</td>
-                                                        <td width="20%"><input class="text" type="text" name="cat_name" value="" /></td>
-                                                        <td>网站 URL，将作为链接显示在页面底部</td>
-                                                        <td width="2%">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="2%">&nbsp;</td>
-                                                        <td>网站备案号：</td>
-                                                        <td width="20%"><input class="text" type="text" name="cat_name" value="" /></td>
-                                                        <td>页面底部可以显示 ICP 备案信息，如果网站已备案，在此输入您的授权码，它将显示在页面底部，如果没有请留空</td>
-                                                        <td width="2%">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>&nbsp;</td>
-                                                        <td>网站统计代码：</td>
-                                                        <td><textarea></textarea></td>
-                                                        <td>页面底部可以显示第三方统计</td>
+                                                <tr>
+                                                
+                                                        <td>&nbsp;<input hidden="hidden" name="flags" value="2"/>
+                                                        <input hidden="hidden" name="couponID" value="${editCoupon.couID }"/>
+                                                        <input hidden="hidden" name="storeId" value="${editCoupon.storeName.stoID }"/></td>
+                                                        <td>优惠券名称：</td>
+                                                        <td><input class="text" type="text" name="cou_name" value="${editCoupon.couName }" /></td>
+                                                        <td></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="submit" value="提交" /></td>
+                                                        <td>优惠券折扣：</td>
+                                                        <td><input class="text" type="text" name="cou_price" value="${editCoupon.couPrice }" /></td>
+                                                        <td></td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>兑换积分价格：</td>
+                                                        <td><input class="text" type="text" name="cou_redeem_points" value="${editCoupon.coouRedeemPoints }" /></td>
+                                                        <td></td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>优惠券数量：</td>
+                                                        <td width="20%"><input class="text" type="text" name="cou_num" value="${editCoupon.conNum }" /></td>
+                                                        <td>举例:55</td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>优惠券到期时间：</td>
+                                                        <td width="20%"><input class="text" type="text" name="cou_Validity" value="${editCoupon.conValidity }" /></td>
+                                                        <td>格式:2000-2-15</td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>优惠券信息：</td>
+                                                        <td><textarea name="cou_info" >${editCoupon.couInfo }</textarea></td>
+                                                        
+                                                        <td>&nbsp;50字以内</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td colspan="3"><input class="btn" type="submit" value="提交" name="submit" />
+                                                         <form action="/xuetuWeb/CouponListServlet">
+                                                        <input type="submit" value="返回"/>
+                                                        </form></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
                                                 </table>
@@ -111,10 +158,7 @@
                         </tr>
                         <tr>
                             <td width="2%">&nbsp;</td>
-                            <td width="51%" class="left_txt">
-                                <img src="./Images/icon_mail.gif" width="16" height="11"> 客户服务邮箱：rainman@foxmail.com<br />
-                                <img src="./Images/icon_phone.gif" width="17" height="14"> 官方网站：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>
-                            </td>
+                            <td width="51%" class="left_txt"><img src="./Images/icon_phone.gif" width="17" height="14" /> 客服电话：1111-1111-1111</td>
                             <td>&nbsp;</td><td>&nbsp;</td>
                         </tr>
                     </table>
