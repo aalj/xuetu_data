@@ -20,6 +20,7 @@ import java.sql.Statement;
 
 import org.junit.Test;
 
+import com.xuetu.service.StorenameService;
 import com.xuetu.utils.DBconnection;
 
 /**
@@ -39,15 +40,8 @@ public class MyTest {
 	
 	@Test
 	public void select() throws SQLException{
-		Connection connection = DBconnection.getConnection();
-		String sql = "desc student;";
-		Statement statement = connection.createStatement();
-		ResultSet query = statement.executeQuery(sql);
-		while (query.next()) {
-			String name = query.getString(1);
-			System.out.println(name);
-			
-		}
+		StorenameService storenameService = new StorenameService();
+		
 	}
 	
 	

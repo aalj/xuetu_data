@@ -65,7 +65,7 @@ public class RegisterServlet extends HttpServlet {
 		//处理文件上传
 		//获得普通域，不变
 		//获得上传文件
-		System.out.println("注册成功");
+		System.out.println(storeName.getStoImg());
 	}
 
 }

@@ -9,23 +9,20 @@
 </head>
 <script src="jquery-1.11.1.js"></script>
 <script>
-/* function Submit(){
+ function Submit(){
 	var insertForm = document.getElementsByName("insertForm")[0];
-	insertForm.action ="/studentweb/insert";
+	insertForm.action ="/xuetuWeb/couAddServlet";
 	insertForm.submit();
-} */
-function Confirm(){
-	var insertForm = document.getElementsByName("insertForm")[0];
-	insertForm.action ="/studentweb/insert";
-	insertForm.submit();
-}
+} 
 $(document).ready(function(e) {
 	$(":button[name=submit]").click(function(e) {
 		var points = $(":input[name=cou_redeem_points]").val();
 		var num = $(":input[name=cou_num]").val();
 		var validity = $(":input[name=cou_Validity]").val();
 		var info = $(":input[name=cou_info]").val();
-        if(points==""||num==""||validity==""||info=="")
+		var num = $(":input[name=cou_num]").val();
+		var price = $(":input[name=cou_price]").val();
+        if(points==""||num==""||validity==""||info==""||num==""||price=="")
 		{
         	alert("请填写必填项！");
 		}
@@ -38,6 +35,7 @@ $(document).ready(function(e) {
     });
     </script>
     <body>
+    <form name="insertForm" method="post">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <!-- 头部开始 -->
             <tr>
@@ -87,6 +85,28 @@ $(document).ready(function(e) {
                                         <td colspan="2">
                                             <form name="insertForm" method="post">
                                                 <table width="100%" class="cont">
+                                                <tr>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>优惠券名</td>
+                                                        <td width="20%"><input class="text" type="text" name="cou_name" value="" /></td>
+                                                        <td></td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
+                                                      <tr>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>优惠券图片</td>
+                                                        <td width="20%"><input type="file" name="files" /><br/>
+<input type="submit" name="upload" value="上传"/></td>
+                                                        <td></td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="2%">&nbsp;</td>
+                                                        <td>优惠券折扣</td>
+                                                        <td width="20%"><input class="text" type="text" name="cou_price" value="" /></td>
+                                                        <td></td>
+                                                        <td width="2%">&nbsp;</td>
+                                                    </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>兑换积分价格：</td>
@@ -158,5 +178,6 @@ $(document).ready(function(e) {
                 </td>           
             </tr>
         </table>
+        </form>
     </body>
 </html>

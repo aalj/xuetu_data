@@ -47,15 +47,20 @@ public class couAddServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		String cou_num = request.getParameter("cou_num");
 		String cou_info = request.getParameter("cou_info");	
+		String cou_name = request.getParameter("cou_name");
+		String cou_price = request.getParameter("cou_price");
 		String cou_Validity = request.getParameter("cou_Validity");
 		String cou_redeem_points = request.getParameter("cou_redeem_points");
-		//创建Coupon对象
-		Coupon coupon = new Coupon();
-		coupon.setConNum(Integer.parseInt(cou_num));
-		coupon.setCoouRedeemPoints(Integer.parseInt(cou_redeem_points));
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
 		try {
+			//创建Coupon对象
+			Coupon coupon = new Coupon();
+			coupon.setConNum(Integer.parseInt(cou_num));
+			coupon.setCoouRedeemPoints(Integer.parseInt(cou_redeem_points));
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			coupon.setConValidity(sdf.parse(cou_Validity));
+			coupon.setCouName(cou_name);
+			coupon.setCouPrice(Integer.parseInt(cou_price));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
