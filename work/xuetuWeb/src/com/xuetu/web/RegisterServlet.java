@@ -46,9 +46,10 @@ public class RegisterServlet extends HttpServlet {
 		String sto_pwdConfirm = request.getParameter("sto_pwdConfirm");
 		Part p = request.getPart("sto_img");
 		String timeStr = System.currentTimeMillis()+"";
-		String sto_img = sto_name+"/WebContent/xuetuImg/"+timeStr+".jpg";
+		System.out.println(sto_name);
+		String sto_img = "/WebContent/xuetuImg/"+sto_name+timeStr+".jpg";
 		//将这个文件保存在服务器的一个地方
-		p.write("/WebContent/xuetuImg/");
+//		p.write(sto_img);
 		//创建StoreName对象
 		
 		StoreName storeName = new StoreName();
@@ -58,7 +59,7 @@ public class RegisterServlet extends HttpServlet {
 		storeName.setStoName(sto_name);
 		storeName.setStoIntroduction(sto_introduction);
 		storeName.setStoPwd(sto_pwd);
-		storeName.setStoImg(sto_img);
+//		storeName.setStoImg(sto_img);
 		//调用Service层方法将storeName添加到数据库
 		storenameService.registerStore(storeName);
 		

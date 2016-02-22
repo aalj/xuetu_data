@@ -52,10 +52,12 @@ public class CouponDao {
 				try {
 					conn = DBconnection.getConnection();
 					// 2、SQL语句
-					String sql = "insert into cuopon(sto_id,cou_info,cou_num,cou_Validity,cou_redeem_points,cou_name,cou_price)" + "values (?,?,?,?,?,?,?)";
+					String sql = "insert into coupon(sto_id,cou_info,cou_num,cou_Validity,cou_redeem_points,cou_name,cou_price)" + "values (?,?,?,?,?,?,?)";
 					// 3、获得preparedStatement对象
 					prep = conn.prepareStatement(sql);
 					// 4、设置？的值
+					//sto_id,cou_info,cou_num,cou_Validity,cou_redeem_points,cou_name,cou_price
+					//
 					prep.setInt(1, sto_id);
 					prep.setString(2, coupon.getCouInfo());
 					prep.setInt(3, coupon.getConNum());
