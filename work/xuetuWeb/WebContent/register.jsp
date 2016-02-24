@@ -9,11 +9,17 @@
 </head>
 <script src="jquery-1.11.1.js"></script>
 <script>
-/*  function Submit(){
+function imgsub(){
+	 var imgForm = document.getElementsByName("imgForm")[0];
+	 alert("imgsub");
+	imgForm.action ="/xuetuWeb/ImgServlet";
+	imgForm.submit(); 
+}
+  function Submit(){
 	var registerForm = document.getElementsByName("registerForm")[0];
-	registerForm.action ="/xuetuWeb/RegisterServlet";
+ 	registerForm.action ="/xuetuWeb/RegisterServlet";
 	registerForm.submit();
-}  */
+}  
 /* function Confirm(){
 	var insertForm = document.getElementsByName("insertForm")[0];
 	insertForm.action ="/studentweb/insert";
@@ -41,11 +47,11 @@ $(document).ready(function(e) {
 		{
         	alert("请填写必填项！");
 		}
-  /*        else if(sto_pwd!=sto_pwdCondirm){
+          else if(sto_pwd!=sto_pwdCondirm){
         	var pwdConfirmText = $("span[name=pwdConfirmText]").val();
         	pwdConfirmText.hidden ="false";
         } 
-         else  */
+         else  
         	Submit(); 
 })
     });
@@ -151,7 +157,7 @@ function showImage()
                                 <table width="100%">
                                     <tr>
                                         <td colspan="2">
-                                            <form name="registerForm" method="post" action="/xuetuWeb/RegisterServlet">
+                                            <form name="registerForm" method="post">
                                                 <table width="100%" class="cont">
                                                     <tr>
                                                         <td>&nbsp;</td>
@@ -165,10 +171,10 @@ function showImage()
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <form name="imgForm" method="post" action="/xuetuWeb/ImgServlet">
+                                                        <form name="imgForm" method="post" enctype="multipart/form-data" >
                                                         <td id="imgName">店铺图片</td>
                                                         <td><input type="file" name="sto_img" onchange="showImage()" /><br/>
-                                                        <input type="submit" name="imgSub" value="上传"/>
+                                                        <input type="button" name="imgSub" onclick="imgsub()" value="上传"/>
 														</td> 
                                                         <td id="imgPrev" align="center">图片预览位置</td>
                                                         </form>
@@ -221,11 +227,11 @@ function showImage()
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
-                                                        <td colspan="3"><input class="btn" type="submit" value="提交" name="sub"/></td>
+                                                        <td colspan="3"><input class="btn" type="button" value="提交" name="sub"/></td>
                                                         <td>&nbsp;</td>
                                                     </tr>
+                                          		  </form>
                                                 </table>
-                                            </form>
                                         </td>
                                     </tr>
                                 </table>

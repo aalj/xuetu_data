@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.swing.plaf.synth.SynthStyle;
 
 /**
  * Servlet implementation class ImgServlet
@@ -31,13 +32,14 @@ public class ImgServlet extends HttpServlet {
 		//处理文件上传
 				//获得普通域，不变
 		String path = request.getServletContext().getRealPath("./");
-				String userName = request.getParameter("userName");
+		System.out.println("path\t"+path);
+				String userName = request.getParameter("sto_img");
 				System.out.println("ok:"+userName);
 				//获得上传文件
 				Part p = request.getPart("sto_img");
 				//将这个文件保存在服务器的一个地方
-				p.write(path+"/xuetuImg/"+"xx.jpg");
-				
+				p.write("d:\\servletAPI3.jpg");
+				System.out.println("2");
 	}
 
 }
