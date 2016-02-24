@@ -33,7 +33,7 @@ public class ImgServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//处理文件上传
 				//获得普通域，不变
-		String path = request.getServletContext().getRealPath("./");
+		String path = request.getServletContext().getRealPath("/");
 				String userName = request.getParameter("sto_img");
 				System.out.println("ok:"+userName);
 				//获得上传文件
@@ -43,8 +43,8 @@ public class ImgServlet extends HttpServlet {
 					System.out.println("p=null");
 				//将这个文件保存在服务器的一个地方
 				else{
-					System.out.println("ok");
-//					p.write("d:\\servletAPI3.jpg");
+					System.out.println(path);
+					p.write(path+"/xuetuImg/"+"b.jpg");
 				}
 	}
 
