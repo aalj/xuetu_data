@@ -11,7 +11,6 @@
 <script>
 function imgsub(){
 	 var imgForm = document.getElementsByName("imgForm")[0];
-	 alert("imgsub");
 	imgForm.action ="/xuetuWeb/ImgServlet";
 	imgForm.submit(); 
 }
@@ -171,6 +170,7 @@ function showImage()
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
+                                                        <form  name="myform" method="post" action="/servlet3/UploadServlet" enctype="multipart/form-data">
                                                         <form name="imgForm" method="post" enctype="multipart/form-data" >
                                                         <td id="imgName">店铺图片</td>
                                                         <td><input type="file" name="sto_img" onchange="showImage()" /><br/>
