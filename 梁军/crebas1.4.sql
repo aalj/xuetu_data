@@ -75,11 +75,11 @@ create table Selfstudyplan
 /*==============================================================*/
 create table agreement
 (
-   agr_id               int not null auto_increment,
-   ans_id               int,
+   agr_id               int(11) not null auto_increment,
+   ans_id               int(11) DEFAULT null,
    stu_id               int not null,
    primary key (agr_id)
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*==============================================================*/
 /* Index: Relationship_21_FK                                    */

@@ -11,16 +11,27 @@
     ①当天的日期,获取day 例: 01日
     ②获取7天的学习时间, 7天的时间为--以当天为准,往前3天和往后3天
     
-  3)
+  3)（需要设计一张签到表）
+  create table  check_ins(
+	chi_id int(9) primary key AUTO_INCREMENT,
+		stu_id int(11) NOT NULL ,
+		chi_time Date not null unique ,
+		chi_is  int(1) not null,
+		KEY `FK_chi_stu` (`stu_id`),
+  CONSTRAINT `FK_chi_stu` FOREIGN KEY (`stu_id`) REFERENCES `student` (`stu_id`)
+  
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  
+  
     签到日历
     ①月份表格
     ②签到记录  //是否签到 
 
-  4)
+  4)(在个人中心里面)
     课程表
     ①获取课程表信息
   5)
-    学习计划设置
+    学习计划设置（在发现里面）
     ①提取用户存储的设置信息
       //监督模式,日期,时间,坐标位,提示语,设置是否提醒
       //用户自定义背景图
